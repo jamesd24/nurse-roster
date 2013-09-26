@@ -12,14 +12,13 @@ public class WardsWindowMain {
         //create Model and View
         WardsWindowModel myModel 	= new WardsWindowModel();
         WardsWindowView myView 	= new WardsWindowView();
-
+        //model acting on view
         myModel.addObserver(myView);
-
+        //addController setup Model and View
         WardsWindowController myController = new WardsWindowController();
         myController.addModel(myModel);
         myController.addView(myView);
         myController.initModel(10);
-
         myView.addController(myController);
     }
 
