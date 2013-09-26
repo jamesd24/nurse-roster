@@ -1,3 +1,5 @@
+import WardsWindow.WardsWindowMain;
+
 /**
  * Created with IntelliJ IDEA.
  * User: James
@@ -8,8 +10,7 @@
 public class NurseRosterApp {
     public static void main(String[] args) {
 
-        InitialWindowTest test = new InitialWindowTest();
-        test.setVisible(true);
+           WardsWindowMain run = new WardsWindowMain();
 
         //System.out.println("Hello World!"); // Display the string.
     }
