@@ -1,3 +1,4 @@
+import RosterWindow.RosterWindowMain;
 import WardsWindow.WardsWindowMain;
 
 /**
@@ -10,6 +11,7 @@ import WardsWindow.WardsWindowMain;
 public class NurseRosterApp {
     public static void main(String[] args) {
            WardsWindowMain run = new WardsWindowMain();
+           RosterWindowMain rrun = new RosterWindowMain();
 
     }
 }

@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31cacd4c-9b0d-456f-bf4c-baae2f515da9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WardsWindow/WardsWindowView.java" afterPath="$PROJECT_DIR$/src/WardsWindow/WardsWindowView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RosterWindow/RosterWindowMain.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NurseRosterApp.java" afterPath="$PROJECT_DIR$/src/NurseRosterApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nurse-roster.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380415490797" ignored="false" />
     <file path="/InitalWindowTest.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1379560361905" ignored="false" />
     <file path="/fragment.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380162999920" ignored="false" />
-    <file path="/NurseRosterApp.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380170871280" ignored="false" />
+    <file path="/NurseRosterApp.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380436106341" ignored="false" />
     <file path="/InitialWindowTest.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1379560936550" ignored="false" />
     <file path="/MainWindowController.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380161907355" ignored="false" />
     <file path="/WardsWindowView.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380434917243" ignored="false" />
@@ -18,6 +23,9 @@
     <file path="/WardsWindow.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380163997591" ignored="false" />
     <file path="/WardsWindowMain.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380417154991" ignored="false" />
     <file path="/TestForm.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380170923279" ignored="false" />
+    <file path="/RosterWindowView.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380436904844" ignored="false" />
+    <file path="/RosterWindowMain.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380435663437" ignored="false" />
+    <file path="/RosterWindowController.java" changelist="31cacd4c-9b0d-456f-bf4c-baae2f515da9" time="1380435997239" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,33 +91,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainWindow.kxf" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/design/MainWindow.kxf">
+      <file leaf-file-name="RosterWindowView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="53" selection-start="1929" selection-end="1932" vertical-scroll-proportion="0.0">
+            <state line="18" column="72" selection-start="530" selection-end="530" vertical-scroll-proportion="0.4935484">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RosterWindow.kxf" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/design/RosterWindow.kxf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="48" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WardsWindowView.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="50" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.36935484">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WardsWindowController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="26" selection-start="863" selection-end="863" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -132,10 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main.java" />
-        <option value="$PROJECT_DIR$/src/InitialWindowTest.java" />
-        <option value="$PROJECT_DIR$/src/MainWindow/MainWindowController.java" />
-        <option value="$PROJECT_DIR$/src/MainWindow/MainWindowController.form" />
         <option value="$PROJECT_DIR$/src/MainWindowController.form" />
         <option value="$PROJECT_DIR$/src/MainWindowController.java" />
         <option value="$PROJECT_DIR$/src/WardsWindow/WardsWindow.java" />
@@ -143,11 +136,15 @@
         <option value="$PROJECT_DIR$/src/WardsWindow/Form1.form" />
         <option value="$PROJECT_DIR$/src/TestForm.java" />
         <option value="$PROJECT_DIR$/src/TestForm.form" />
-        <option value="$PROJECT_DIR$/src/NurseRosterApp.java" />
         <option value="$PROJECT_DIR$/src/WardsWindow/WardsWindowModel.java" />
         <option value="$PROJECT_DIR$/src/WardsWindow/WardsWindowMain.java" />
         <option value="$PROJECT_DIR$/src/WardsWindow/WardsWindowController.java" />
         <option value="$PROJECT_DIR$/src/WardsWindow/WardsWindowView.java" />
+        <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowMain.java" />
+        <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java" />
+        <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java" />
+        <option value="$PROJECT_DIR$/src/NurseRosterApp.java" />
+        <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java" />
       </list>
     </option>
   </component>
@@ -243,11 +240,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WardsWindow" />
+              <option name="myItemId" value="design" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -646,28 +639,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nurse-roster.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="9" selection-start="423" selection-end="423" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NurseRosterApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="29" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nurse-roster.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nurse-roster.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -693,36 +664,6 @@
         <state line="70" column="0" selection-start="3077" selection-end="3077" vertical-scroll-proportion="0.8229167" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="5" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="5" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NurseRosterApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="55" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="26" selection-start="863" selection-end="863" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/design/MainWindow.kxf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="53" selection-start="1929" selection-end="1932" vertical-scroll-proportion="0.0">
@@ -730,9 +671,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="4" selection-start="211" selection-end="485" vertical-scroll-proportion="0.27419356">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="69" selection-start="430" selection-end="430" vertical-scroll-proportion="0.3564516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="51" selection-start="360" selection-end="360" vertical-scroll-proportion="0.41129032">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="34" selection-start="348" selection-end="664" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="5" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="34" selection-start="803" selection-end="803" vertical-scroll-proportion="0.027419355">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WardsWindow/WardsWindowView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="50" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.36935484">
+        <state line="121" column="1" selection-start="2772" selection-end="3606" vertical-scroll-proportion="0.9451613">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NurseRosterApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="30" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/design/RosterWindow.kxf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="48" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="72" selection-start="530" selection-end="530" vertical-scroll-proportion="0.4935484">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
