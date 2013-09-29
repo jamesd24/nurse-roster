@@ -110,6 +110,18 @@ public class WardsWindowView extends JFrame{
         calculateButton.addActionListener(listenForCalcButton);
 
     }
+    void addRosterListener(ActionListener l){
+        rosterButton.addActionListener(l);
+    }
+    void addNewWardListener(ActionListener l){
+        newWardButton.addActionListener(l);
+    }
+    void addPropertiesListener(ActionListener l){
+        propertiesButton.addActionListener(l);
+    }
+    void addDeleteWardListener(ActionListener l){
+        deleteWardeButton.addActionListener(l);
+    }
 
     // Open a popup that contains the error message passed
 
