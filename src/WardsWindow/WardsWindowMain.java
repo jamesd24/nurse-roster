@@ -9,17 +9,9 @@ package WardsWindow;
  */
 public class WardsWindowMain {
     public WardsWindowMain() {
-        //create Model and View
-        WardsWindowModel myModel 	= new WardsWindowModel();
-        WardsWindowView myView 	= new WardsWindowView();
-        //model acting on view
-        myModel.addObserver(myView);
-        //addController setup Model and View
-        WardsWindowController myController = new WardsWindowController();
-        myController.addModel(myModel);
-        myController.addView(myView);
-        myController.initModel(10);
-        myView.addController(myController);
+        WardsWindowView theView = new WardsWindowView();
+        WardsWindowModel theModel = new WardsWindowModel();
+        WardsWindowController theController = new WardsWindowController(theView,theModel);
+        theView.setVisible(true);
     }
-
 }

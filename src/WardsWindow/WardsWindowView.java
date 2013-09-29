@@ -1,11 +1,5 @@
 package WardsWindow;
 
-import javax.swing.*;
-import java.util.Observable;
-import java.util.Observer;
-import java.lang.Integer;
-
-
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,38 +8,84 @@ import java.lang.Integer;
  * Time: 12:26 PM
  * To change this template use File | Settings | File Templates.
  */
-public class WardsWindowView implements Observer {
-    private JTextField myTextField;
-    private JButton button;
+// This is the View
+// Its only job is to display what the user sees
+// It performs no calculations, but instead passes
+// information entered by the user to whomever needs
+// it.
 
-    WardsWindowView() {
-        //frame in constructor and not an attribute as doesn't need to be visible to whole class
-        JFrame frame = new JFrame("Nurse Rosters");
-        frame.add("North", new JLabel("Wards"));
+import java.awt.event.ActionListener;
 
-        myTextField = new JTextField();
-        frame.add("Center", myTextField);
+import javax.swing.*;
 
-        //panel in constructor and not an attribute as doesn't need to be visible to whole class
-        JPanel panel = new JPanel();
-        button = new JButton("Test");
-        panel.add(button);
-        frame.add("South", panel);
+public class WardsWindowView extends JFrame{
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(200,100);
-        frame.setLocation(100,100);
-        frame.setVisible(true);
+    private JTextField firstNumber  = new JTextField(10);
+    private JLabel additionLabel = new JLabel("+");
+    private JTextField secondNumber = new JTextField(10);
+    private JButton calculateButton = new JButton("Calculate");
+    private JTextField calcSolution = new JTextField(10);
+
+    WardsWindowView(){
+
+        // Sets up the view and adds the components
+
+        JPanel calcPanel = new JPanel();
+
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(600, 200);
+
+        calcPanel.add(firstNumber);
+        calcPanel.add(additionLabel);
+        calcPanel.add(secondNumber);
+        calcPanel.add(calculateButton);
+        calcPanel.add(calcSolution);
+
+        this.add(calcPanel);
+
+        // End of setting up the components --------
+
     }
 
-    public void update(Observable obs, Object obj) {
-        myTextField.setText("" + ((Integer)obj).intValue());
+    public int getFirstNumber(){
+
+        return Integer.parseInt(firstNumber.getText());
+
     }
-    public void setValue(int v){
-        myTextField.setText("" + v);
+
+    public int getSecondNumber(){
+
+        return Integer.parseInt(secondNumber.getText());
+
     }
-    public void addController(WardsWindowController controller){
-        button.addActionListener(controller);
+
+    public int getCalcSolution(){
+
+        return Integer.parseInt(calcSolution.getText());
+
     }
+
+    public void setCalcSolution(int solution){
+
+        calcSolution.setText(Integer.toString(solution));
+
+    }
+
+    // If the calculateButton is clicked execute a method
+    // in the Controller named actionPerformed
+
+    void addCalculateListener(ActionListener listenForCalcButton){
+
+        calculateButton.addActionListener(listenForCalcButton);
+
+    }
+
+    // Open a popup that contains the error message passed
+
+    void displayErrorMessage(String errorMessage){
+
+        JOptionPane.showMessageDialog(this, errorMessage);
+
+    }
+
 }
-

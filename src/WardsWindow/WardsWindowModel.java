@@ -9,26 +9,26 @@ import java.util.Observable;
  * Time: 12:25 PM
  * To change this template use File | Settings | File Templates.
  */
-public class WardsWindowModel extends Observable {
+// The Model performs all the calculations needed
+// and that is it. It doesn't know the View
+// exists
 
-    private int counter;
+public class WardsWindowModel {
 
-    public WardsWindowModel(){
-        System.out.println("Model()");
+    // Holds the value of the sum of the numbers
+    // entered in the view
+
+    private int calculationValue;
+
+    public void addTwoNumbers(int firstNumber, int secondNumber){
+
+        calculationValue = firstNumber + secondNumber;
 
     }
-    public void setValue(int value) {
 
-        this.counter = value;
-        System.out.println("Model init: counter = " + counter);
-        setChanged();
-        notifyObservers(counter);
-    }
-    public void incrementValue() {
+    public int getCalculationValue(){
 
-        ++counter;
-        System.out.println("Model     : counter = " + counter);
-        setChanged();
-        notifyObservers(counter);
+        return calculationValue;
+
     }
 }
