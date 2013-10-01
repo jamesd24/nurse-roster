@@ -21,14 +21,10 @@ import javax.swing.*;
 
 public class WardsWindowView extends JFrame{
 
-    private JTextField firstNumber  = new JTextField(10);
-    private JTextField secondNumber = new JTextField(10);
     private JButton newWardButton = new JButton("New Ward");
     private JButton propertiesButton = new JButton("Properties");
     private JButton rosterButton = new JButton("Roster");
     private JButton deleteWardeButton = new JButton("Delete Ward");
-    private JButton calculateButton = new JButton("Calc");
-    private JTextField calcSolution = new JTextField(10);
     private JList wardsList = new JList();
     private JScrollPane wardsPane = new JScrollPane();
 
@@ -78,38 +74,6 @@ public class WardsWindowView extends JFrame{
 
     }
 
-    public int getFirstNumber(){
-
-        return Integer.parseInt(firstNumber.getText());
-
-    }
-
-    public int getSecondNumber(){
-
-        return Integer.parseInt(secondNumber.getText());
-
-    }
-
-    public int getCalcSolution(){
-
-        return Integer.parseInt(calcSolution.getText());
-
-    }
-
-    public void setCalcSolution(int solution){
-
-        calcSolution.setText(Integer.toString(solution));
-
-    }
-
-    // If the calculateButton is clicked execute a method
-    // in the Controller named actionPerformed
-
-    void addCalculateListener(ActionListener listenForCalcButton){
-
-        calculateButton.addActionListener(listenForCalcButton);
-
-    }
     void addRosterListener(ActionListener l){
         rosterButton.addActionListener(l);
     }

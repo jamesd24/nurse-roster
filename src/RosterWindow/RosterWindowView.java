@@ -13,13 +13,9 @@ import java.awt.event.ActionListener;
  */
 public class RosterWindowView extends JFrame
 {
-    private JTextField firstNumber  = new JTextField(10);
-    private JTextField secondNumber = new JTextField(10);
     private JButton closeButton = new JButton("Close");
     private JButton printButton = new JButton("Print");
     private JButton generateRosterButton = new JButton("Generate Roster");
-    private JButton calculateButton = new JButton("Calc");
-    private JTextField calcSolution = new JTextField(10);
     private JList rosterList = new JList();
     private JScrollPane rosterPane = new JScrollPane();
 
@@ -67,41 +63,18 @@ public class RosterWindowView extends JFrame
         // End of setting up the components --------
 
     }
-    public int getFirstNumber(){
 
-        return Integer.parseInt(firstNumber.getText());
-
+    void addGenerateListener(ActionListener l){
+        generateRosterButton.addActionListener(l);
     }
-
-    public int getSecondNumber(){
-
-        return Integer.parseInt(secondNumber.getText());
-
+    void addPrintListener(ActionListener l){
+        printButton.addActionListener(l);
     }
-
-    public int getCalcSolution(){
-
-        return Integer.parseInt(calcSolution.getText());
-
-    }
-
-    public void setCalcSolution(int solution){
-
-        calcSolution.setText(Integer.toString(solution));
-
-    }
-
-    // If the calculateButton is clicked execute a method
-    // in the Controller named actionPerformed
-
-    void addCalculateListener(ActionListener listenForCalcButton){
-
-        calculateButton.addActionListener(listenForCalcButton);
-
+    void addCloseListener(ActionListener l){
+        closeButton.addActionListener(l);
     }
 
     // Open a popup that contains the error message passed
-
     void displayErrorMessage(String errorMessage){
 
         JOptionPane.showMessageDialog(this, errorMessage);

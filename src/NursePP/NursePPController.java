@@ -1,4 +1,4 @@
-package RosterWindow;
+package NursePP;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,34 +7,39 @@ package RosterWindow;
  * Time: 4:13 PM
  * To change this template use File | Settings | File Templates.
  */
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // The Controller coordinates interactions
 // between the View and Model
 
-public class RosterWindowController {
+public class NursePPController {
 
-    private RosterWindowView theView;
-    private RosterWindowModel theModel;
+    private NursePPView theView;
+    private NursePPModel theModel;
 
-    public RosterWindowController(RosterWindowView theView, RosterWindowModel theModel) {
+    public NursePPController(NursePPView theView, NursePPModel theModel) {
         this.theView = theView;
         this.theModel = theModel;
 
-        this.theView.addGenerateListener(new GenerateListener());
-        this.theView.addPrintListener(new PrintListener());
+        // Tell the View that when ever a button
+        // is clicked to execute the actionPerformed method
+
+        this.theView.addOkListener(new OkListener());
         this.theView.addCloseListener(new CloseListener());
+        this.theView.addApplyListener(new ApplyListener());
+
     }
 
-    class GenerateListener implements ActionListener{
+    class OkListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
-            theView.displayErrorMessage("To Be Implemented| Phil starts here | RosterWindowModel");
+            theView.displayErrorMessage("To Be Implemented");
 
         }
     }
-    class PrintListener implements ActionListener{
+    class ApplyListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
             theView.displayErrorMessage("To Be Implemented");
