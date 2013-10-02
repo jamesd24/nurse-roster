@@ -22,7 +22,14 @@ public class RosterSolver
 
         Problem result = BacktrackCSP.rosterSolver(r1.initialState);
 
-        result.printRoster();
+        if(result != null)
+        {
+            result.printRoster();
+        }
+        else
+        {
+            System.out.println("Unable to complete");
+        }
     }
 
     // Gives a certain nurse a certain shift type on a certain day

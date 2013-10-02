@@ -17,6 +17,12 @@ public class BacktrackCSP
 
     public static Problem rosterSolver(Problem initialState)
     {
+        // If the setup of the roster isn't correct, don't proceed
+        /**if(!initialState.checkInitialState())
+        {
+            return null;
+        }*/
+
         return backtrackSearch(solution, initialState);
     }
 
@@ -57,6 +63,13 @@ public class BacktrackCSP
             if(currentState.checkValidAssignment(emptyShift[0], emptyShift[1], shift))
             {
                 currentState.setNurseShift(emptyShift[0], emptyShift[1], shift);
+            }
+            /**
+             * If the nurse can't take the shift then she has to take the day off
+             */
+            else
+            {
+                currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.SHIFT_OFF);
             }
 
             // At this point we probably want to call some kind of paint method to display the updated roster so we can

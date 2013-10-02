@@ -18,6 +18,12 @@ public class Problem
     private int nurses;
     private int days;
 
+    // A string to output an error to for custom error handling
+    public String error = null;
+
+    /**
+     * Constructor that takes a number of nurses and a number of days
+     */
     public Problem(int nurses, int period)
     {
         // Setup the new roster object and a list of nurses to be used.
@@ -44,6 +50,7 @@ public class Problem
         }
     }
 
+
     // Return the nurse for the given day
     public Nurse getNurse(int nurse)
     {
@@ -54,6 +61,7 @@ public class Problem
     public void setNurseShift(int nurse, int day, int shift)
     {
         roster.setShift(nurse, day, shift);
+        nurseList[nurse].setLastOff(nurseList[nurse].getLastOff()+1);
     }
 
     // Sets the shift type of the nurse
@@ -114,14 +122,79 @@ public class Problem
         return emptyDay;
     }
 
-    public boolean checkValidAssignment(int nurse, int day, int shift)
-    {
-        return true;
-    }
-
     public void printRoster()
     {
         roster.printRoster();
+    }
+
+    /**
+     * Used to check the setup of the roster doesn't contain any disallowed
+     * settings, such as not enough SRN nurses
+     */
+    public boolean checkInitialState()
+    {
+        int numSRN = 0;
+
+        for(Nurse nurse : nurseList)
+        {
+            if(nurse.getGrade() == Nurse.SRN)
+            {
+                numSRN++;
+            }
+        }
+        // At least 4 of the nurses in the roster should be SRN (This can be done earlier to reduce wasted reuse)
+        if(numSRN > 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    /**
+     * Checks that the shift assignment for a nurse at a given day is allowable
+     * returns true if it is, false if not.
+     *
+     * This is the main function that will be called by the CSP class to fill in the roster
+     */
+    public boolean checkValidAssignment(int nurse, int day, int shift)
+    {
+        if(canTakeShift(nurse))
+        {
+            return true;
+        }
+        // Checks needed:
+            // If 7 day shift, max 5 shifts, 14 day shift is 10
+            // Nurses on shift type D can only work day, N can only work night, DN can work both
+                // If the nurse is DN, then N can only be followed by N or O
+            // Both D and N must have a SRN working every day
+        return false;
+    }
+
+    /**
+     * Checks if a nurse can take another shift without having a day off
+     */
+    private boolean canTakeShift(int nurse)
+    {
+        if(roster.getPeriod() == Roster.ROSTER_7_DAY)
+        {
+            if(nurseList[nurse].getLastOff() >= 5)
+            {
+                return false;
+            }
+        }
+        else if(roster.getPeriod() == Roster.ROSTER_14_DAY)
+        {
+            if(nurseList[nurse].getLastOff() >= 10)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }

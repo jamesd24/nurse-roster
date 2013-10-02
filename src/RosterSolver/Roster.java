@@ -61,6 +61,14 @@ public class Roster
     }
 
     /**
+     * Returns the roster period
+     */
+    public int getPeriod()
+    {
+        return period;
+    }
+
+    /**
      * Prints the roster out in rows of the form
      * Nurse 1: shift shift shift shift shift
      * Nurse 2: shift shift shift shift shift
