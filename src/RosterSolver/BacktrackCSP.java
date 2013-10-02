@@ -57,40 +57,32 @@ public class BacktrackCSP
          */
         for(int shift : shiftTimes)
         {
+            Problem result = null;
             /**
              * If the shift type is valid then add it to the roster for that nurse and shift
              */
             if(currentState.checkValidAssignment(emptyShift[0], emptyShift[1], shift))
             {
                 currentState.setNurseShift(emptyShift[0], emptyShift[1], shift);
-            }
-            /**
-             * If the nurse can't take the shift then she has to take the day off
-             */
-            else
-            {
-                currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.SHIFT_OFF);
-            }
 
-            // At this point we probably want to call some kind of paint method to display the updated roster so we can
-            // visually see how the roster updates as it runs
+                result = backtrackSearch(currentState, initialState);
 
-            /**
-             * Go around again with the new roster setup
-             */
-            Problem result = backtrackSearch(currentState, initialState);
+                // At this point we probably want to call some kind of paint method to display the updated roster so we can
+                // visually see how the roster updates as it runs
 
-            /**
-             * If the result of the search was null then it failed and the shift type needs to be reset
-             * If not then return the result
-             */
-            if(result != null)
-            {
-                return result;
-            }
-            else
-            {
-                currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.NOT_SET);
+                /**
+                 * If the result of the search was null then it failed and the shift type needs to be reset
+                 * If not then return the result
+                 */
+                if(result != null)
+                {
+                    return result;
+                }
+                //TODO Check this else out and see if I need to change it to be something else
+                else
+                {
+                    currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.SHIFT_OFF);
+                }
             }
         }
 

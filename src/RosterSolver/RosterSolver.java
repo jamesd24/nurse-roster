@@ -8,6 +8,8 @@ package RosterSolver;
  */
 public class RosterSolver
 {
+    private static final int NUM_NURSES_TEST = 5;
+    private static final int ROSTER_TYPE = Roster.ROSTER_14_DAY;
     private Problem initialState;
 
     public RosterSolver(int nurses, int period)
@@ -18,7 +20,10 @@ public class RosterSolver
 
     public static void main(String args[])
     {
-        RosterSolver r1 = new RosterSolver(5, Roster.ROSTER_14_DAY);
+        RosterSolver r1 = new RosterSolver(NUM_NURSES_TEST, ROSTER_TYPE);
+
+        r1.setNurseShiftPattern(0,Roster.SHIFT_DAY);
+        r1.setNurseShiftPattern(1, Roster.SHIFT_NIGHT);
 
         Problem result = BacktrackCSP.rosterSolver(r1.initialState);
 

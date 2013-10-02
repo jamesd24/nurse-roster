@@ -61,7 +61,19 @@ public class Problem
     public void setNurseShift(int nurse, int day, int shift)
     {
         roster.setShift(nurse, day, shift);
-        nurseList[nurse].setLastOff(nurseList[nurse].getLastOff()+1);
+
+        /**
+         * If the shift isn't a day off, add one to the amount of days since the last day off
+         */
+        if(shift != Roster.SHIFT_OFF)
+        {
+            nurseList[nurse].setLastOff(nurseList[nurse].getLastOff()+1);
+        }
+        else
+        {
+            nurseList[nurse].setLastOff(0);
+        }
+
     }
 
     // Sets the shift type of the nurse
@@ -162,12 +174,11 @@ public class Problem
      */
     public boolean checkValidAssignment(int nurse, int day, int shift)
     {
-        if(canTakeShift(nurse))
+        if(canTakeShift(nurse) && isRightShiftType(nurse, shift))
         {
             return true;
         }
         // Checks needed:
-            // If 7 day shift, max 5 shifts, 14 day shift is 10
             // Nurses on shift type D can only work day, N can only work night, DN can work both
                 // If the nurse is DN, then N can only be followed by N or O
             // Both D and N must have a SRN working every day
@@ -177,6 +188,7 @@ public class Problem
     /**
      * Checks if a nurse can take another shift without having a day off
      */
+    // This needs changing as it always assumes days in a row not day day off day which it would count as 1 day since last break
     private boolean canTakeShift(int nurse)
     {
         if(roster.getPeriod() == Roster.ROSTER_7_DAY)
@@ -197,4 +209,11 @@ public class Problem
         return true;
     }
 
+    /**
+     * Checks if the shift type is the type a nurse can take
+     */
+    private boolean isRightShiftType(int nurse, int shift)
+    {
+        return (nurseList[nurse].getShiftType() == shift) || shift == Roster.SHIFT_OFF;
+    }
 }

@@ -54,7 +54,6 @@ public class Roster
     /**
      * returns the shift type for a nurse at a given day
      */
-
     public int getShift(int nurse, int day)
     {
         return roster[nurse][day];
@@ -80,6 +79,10 @@ public class Roster
         {
             for(int j = 0; j < period; j++)
             {
+                if(j == 0)
+                {
+                    System.out.print("Nurse " +(i+1) + ": ");
+                }
                 System.out.print(" " +roster[i][j] +" ");
 
                 if(j == period -1)
