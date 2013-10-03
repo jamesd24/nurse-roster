@@ -1,4 +1,7 @@
 package RosterSolver;
+
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Phil
@@ -18,8 +21,11 @@ public class Problem
     private int nurses;
     private int days;
 
+    private final int MAX_SHIFTS_7_DAY = 5;
+    private final int MAX_SHIFTS_14_DAY = 10;
+
     // A string to output an error to for custom error handling
-    public String error = null;
+    public static ArrayList<String> error = new ArrayList<String>();
 
     /**
      * Constructor that takes a number of nurses and a number of days
@@ -42,11 +48,11 @@ public class Problem
         // Sets the max number of shifts the nurses can do, depending on the period being defined
         if(period == Roster.ROSTER_7_DAY)
         {
-            maxShifts = 5;
+            maxShifts = MAX_SHIFTS_7_DAY;
         }
         else
         {
-            maxShifts = 10;
+            maxShifts = MAX_SHIFTS_14_DAY;
         }
     }
 
@@ -174,7 +180,7 @@ public class Problem
      */
     public boolean checkValidAssignment(int nurse, int day, int shift)
     {
-        if(canTakeShift(nurse) && isRightShiftType(nurse, shift))
+        if(canTakeShift(nurse, shift) && isRightShiftType(nurse, shift))
         {
             return true;
         }
@@ -189,24 +195,57 @@ public class Problem
      * Checks if a nurse can take another shift without having a day off
      */
     // This needs changing as it always assumes days in a row not day day off day which it would count as 1 day since last break
-    private boolean canTakeShift(int nurse)
+    private boolean canTakeShift(int nurse, int shift)
     {
+        /**
+         * Can always take a shift off
+         */
+        if(shift == Roster.SHIFT_OFF)
+        {
+            return true;
+        }
+
+        /**
+         * Otherwise check that they haven't worked too many days recently
+         */
         if(roster.getPeriod() == Roster.ROSTER_7_DAY)
         {
-            if(nurseList[nurse].getLastOff() >= 5)
+            /**
+             * First checks if the days since the last day off for the nurse is at the limit
+             * If it isn't then it checks if the total number of shifts the nurse has done is
+             * lower than the limit
+             */
+            if(nurseList[nurse].getLastOff() >= MAX_SHIFTS_7_DAY)
             {
                 return false;
+            }
+            else
+            {
+                return countShifts(nurse) < MAX_SHIFTS_7_DAY;
             }
         }
         else if(roster.getPeriod() == Roster.ROSTER_14_DAY)
         {
-            if(nurseList[nurse].getLastOff() >= 10)
+            if(nurseList[nurse].getLastOff() >= MAX_SHIFTS_14_DAY)
             {
                 return false;
             }
+            else
+            {
+                return countShifts(nurse) < MAX_SHIFTS_14_DAY;
+            }
         }
 
-        return true;
+        errorHandler("Problem with roster assigning");
+        return false;
+    }
+
+    /**
+     * returns the number of shifts done by the given nurse during the current roster
+     */
+    private int countShifts(int nurse)
+    {
+        return roster.countNurseShifts(nurse);
     }
 
     /**
@@ -214,6 +253,48 @@ public class Problem
      */
     private boolean isRightShiftType(int nurse, int shift)
     {
-        return (nurseList[nurse].getShiftType() == shift) || shift == Roster.SHIFT_OFF;
+        /**
+         * All nurses can take a day off
+         */
+        if(shift == Roster.SHIFT_OFF)
+        {
+            return true;
+        }
+        /**
+         * Check that the nurse's given shift pattern fits the shift assignment she is being given
+         */
+        if(nurseList[nurse].getShiftType() == Nurse.D)
+        {
+            return shift == Roster.SHIFT_DAY;
+        }
+        else if(nurseList[nurse].getShiftType() == Nurse.N)
+        {
+            return shift == Roster.SHIFT_NIGHT;
+        }
+        else if(nurseList[nurse].getShiftType() == Nurse.DN)
+        {
+            return shift == Roster.SHIFT_DAY || shift == Roster.SHIFT_NIGHT;
+        }
+        /**
+         * If the nurse doesn't have an assigned shift pattern she is just assigned off for all
+         */
+        //TODO maybe look at extending this to give an error rather than just setting all shifts for that nurse to off
+        // Will need to change the start of the function to accomodate that
+        else
+        {
+            errorHandler("Nurse " + nurse + " does not have a shift assigned");
+            return false;
+        }
+    }
+
+    /**
+     * Creates error strings, discards repeat errors
+     */
+    private void errorHandler(String in)
+    {
+        if(!error.contains(in))
+        {
+            error.add(in);
+        }
     }
 }

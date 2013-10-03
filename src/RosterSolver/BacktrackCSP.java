@@ -78,10 +78,10 @@ public class BacktrackCSP
                 {
                     return result;
                 }
-                //TODO Check this else out and see if I need to change it to be something else
+                //TODO I think this is correct now, not certain, needs further investigation
                 else
                 {
-                    currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.SHIFT_OFF);
+                    currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.NOT_SET);
                 }
             }
         }

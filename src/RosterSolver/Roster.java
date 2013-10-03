@@ -68,6 +68,24 @@ public class Roster
     }
 
     /**
+     * Counts the number of shifts the given nurse has done
+     */
+    public int countNurseShifts(int nurse)
+    {
+        int count = 0;
+
+        for(int i = 0; i < period; i++)
+        {
+            if(roster[nurse][i] == SHIFT_DAY || roster[nurse][i] == SHIFT_NIGHT)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    /**
      * Prints the roster out in rows of the form
      * Nurse 1: shift shift shift shift shift
      * Nurse 2: shift shift shift shift shift
