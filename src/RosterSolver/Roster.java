@@ -101,7 +101,18 @@ public class Roster
                 {
                     System.out.print("Nurse " +(i+1) + ": ");
                 }
-                System.out.print(" " +roster[i][j] +" ");
+                if(roster[i][j] == SHIFT_DAY)
+                {
+                    System.out.print(" D ");
+                }
+                else if(roster[i][j] == SHIFT_NIGHT)
+                {
+                    System.out.print(" N ");
+                }
+                else if(roster[i][j] == SHIFT_OFF)
+                {
+                    System.out.print(" O ");
+                }
 
                 if(j == period -1)
                 {

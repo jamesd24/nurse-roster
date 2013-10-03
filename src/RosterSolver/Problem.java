@@ -99,7 +99,9 @@ public class Problem
         nurseList[nurse].setGrade(grade);
     }
 
-    // Checks to see if all days have been filled in or not
+    /**
+     * Checks if all the places in the roster have been filled or not
+     */
     public boolean isComplete()
     {
         int check[] = getEmptyShift();
@@ -113,7 +115,9 @@ public class Problem
         }
     }
 
-    // Finds the next available empty shift on the roster
+    /**
+     * Returns the next empty shift in the roster
+     */
     public int[] getEmptyShift()
     {
         int[] emptyDay = new int[2];
@@ -140,11 +144,6 @@ public class Problem
         return emptyDay;
     }
 
-    public void printRoster()
-    {
-        roster.printRoster();
-    }
-
     /**
      * Used to check the setup of the roster doesn't contain any disallowed
      * settings, such as not enough SRN nurses
@@ -160,16 +159,66 @@ public class Problem
                 numSRN++;
             }
         }
-        // At least 4 of the nurses in the roster should be SRN (This can be done earlier to reduce wasted reuse)
+        /**
+         * If we have enough SRN nurses then we need to check that we have ones to cover off both day and night
+         */
         if(numSRN > 3)
         {
-            return true;
+            return checkDayNightSRN();
         }
         else
         {
+            errorHandler("Not enough SRN nurses");
             return false;
         }
 
+    }
+
+    /**
+     * Checks that both D and N shifts will have an available SRN
+     */
+    private boolean checkDayNightSRN()
+    {
+        int daySRN = 0;
+        int nightSRN = 0;
+
+        for(Nurse nurse : nurseList)
+        {
+            if(nurse.getGrade() == Nurse.SRN)
+            {
+                if(nurse.getShiftType() == Nurse.D || nurse.getShiftType() == Nurse.DN)
+                {
+                    daySRN++;
+                }
+                else if(nurse.getShiftType() == Nurse.N || nurse.getShiftType() == Nurse.DN)
+                {
+                    nightSRN++;
+                }
+            }
+        }
+
+        /**
+         * Add errors if there aren't enough SRNs for a shift
+         */
+        if(!(daySRN >= getMinSRN()))
+        {
+            errorHandler("Not enough day SRNs.\nMinimum needed: " +getMinSRN() +"\nNumber currently rostered: " +daySRN);
+        }
+        if(!(nightSRN >= getMinSRN()))
+        {
+            errorHandler("Not enough night SRNs.\nMinimum needed: " +getMinSRN() +"\nNumber currently rostered: " +nightSRN);
+        }
+
+        return (daySRN >= getMinSRN()) && (nightSRN >= getMinSRN());
+    }
+
+    /**
+     * Returns the minimum number of SRNs needed to fill the roster and cover off the day/night shifts
+     * this takes into account the number of days in the roster and the maximum number of shifts a nurse can work per period
+     */
+    private int getMinSRN()
+    {
+        return (int) Math.ceil((float) roster.getPeriod() / maxShifts);
     }
 
     /**
@@ -184,17 +233,12 @@ public class Problem
         {
             return true;
         }
-        // Checks needed:
-            // Nurses on shift type D can only work day, N can only work night, DN can work both
-                // If the nurse is DN, then N can only be followed by N or O
-            // Both D and N must have a SRN working every day
         return false;
     }
 
     /**
      * Checks if a nurse can take another shift without having a day off
      */
-    // This needs changing as it always assumes days in a row not day day off day which it would count as 1 day since last break
     private boolean canTakeShift(int nurse, int shift)
     {
         /**
@@ -271,9 +315,10 @@ public class Problem
         {
             return shift == Roster.SHIFT_NIGHT;
         }
+        //TODO add in the night is followed by night or day off stipulation
         else if(nurseList[nurse].getShiftType() == Nurse.DN)
         {
-            return shift == Roster.SHIFT_DAY || shift == Roster.SHIFT_NIGHT;
+            return (shift == Roster.SHIFT_DAY || shift == Roster.SHIFT_NIGHT) && dayNightNurseCheck(nurse, shift);
         }
         /**
          * If the nurse doesn't have an assigned shift pattern she is just assigned off for all
@@ -287,6 +332,29 @@ public class Problem
         }
     }
 
+    /**
+     * Checks if a nurse with the shift type of DN can take a shift
+     * If the last shift was a night shift then the next shift can only be either N or O
+     */
+    private boolean dayNightNurseCheck(int nurse, int shift)
+    {
+        if(nurseList[nurse].getLastShift() == Roster.SHIFT_NIGHT)
+        {
+            return shift == Roster.SHIFT_NIGHT || shift == Roster.SHIFT_OFF;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /**
+     * Prints the roster to the command line
+     */
+    public void printRoster()
+    {
+        roster.printRoster();
+    }
     /**
      * Creates error strings, discards repeat errors
      */

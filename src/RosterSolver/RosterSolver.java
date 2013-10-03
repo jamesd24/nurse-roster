@@ -29,8 +29,14 @@ public class RosterSolver
         r1.setNurseShiftPattern(0,Nurse.D);
         r1.setNurseShiftPattern(1,Nurse.N);
         r1.setNurseShiftPattern(2,Nurse.D);
-        //r1.setNurseShiftPattern(3,Nurse.N);
+        r1.setNurseShiftPattern(3,Nurse.N);
         r1.setNurseShiftPattern(4,Nurse.D);
+
+        r1.setNurseGrade(0, Nurse.SRN);
+        r1.setNurseGrade(1, Nurse.SRN);
+        r1.setNurseGrade(2, Nurse.SRN);
+        r1.setNurseGrade(3, Nurse.SRN);
+        r1.setNurseGrade(4, Nurse.SRN);
 
         Problem result = BacktrackCSP.rosterSolver(r1.initialState);
 

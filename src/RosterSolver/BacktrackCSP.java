@@ -18,10 +18,10 @@ public class BacktrackCSP
     public static Problem rosterSolver(Problem initialState)
     {
         // If the setup of the roster isn't correct, don't proceed
-        /**if(!initialState.checkInitialState())
+        if(!initialState.checkInitialState())
         {
             return null;
-        }*/
+        }
 
         return backtrackSearch(solution, initialState);
     }
@@ -34,6 +34,9 @@ public class BacktrackCSP
         /**
          *  setup the current state for the first run through
          */
+        //TODO this needs changing to be a method to copy the contents of initialState into currentState so it isn't just a reference that updates both objects
+        //TODO right now the initialState is useless as it is the same as the currentState, inititalState is only really needed for the print process anyway where
+        //TODO you display the set shifts in red, so this could be changed for a list of shifts which were set and initialState removed
         if(currentState == null)
         {
             currentState = initialState;
@@ -65,10 +68,11 @@ public class BacktrackCSP
             {
                 currentState.setNurseShift(emptyShift[0], emptyShift[1], shift);
 
-                result = backtrackSearch(currentState, initialState);
+                //TODO PRINT FUNCTION GOES HERE TO DISPLAY UPDATING VIEW
+                //currentState.printRoster();
+                //System.out.print("\n");
 
-                // At this point we probably want to call some kind of paint method to display the updated roster so we can
-                // visually see how the roster updates as it runs
+                result = backtrackSearch(currentState, initialState);
 
                 /**
                  * If the result of the search was null then it failed and the shift type needs to be reset
