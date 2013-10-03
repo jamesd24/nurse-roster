@@ -6,6 +6,7 @@ package RosterSolver;
  * Time: 11:03 AM
  *
  * A Nurse object type that defines the shift pattern and the grade of a nurse
+ * As well as the number of since last day off
  */
 public class Nurse
 {

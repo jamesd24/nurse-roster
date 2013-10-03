@@ -15,6 +15,7 @@ public class Roster
     public static final int SHIFT_DAY = 1;
     public static final int SHIFT_NIGHT = 2;
 
+    // Roster lengths
     public static final int ROSTER_7_DAY = 7;
     public static final int ROSTER_14_DAY = 14;
 

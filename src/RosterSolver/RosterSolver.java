@@ -34,7 +34,7 @@ public class RosterSolver
         r1.setNurseShiftPattern(5,Nurse.N);
         r1.setNurseShiftPattern(6,Nurse.N);
         r1.setNurseShiftPattern(7,Nurse.D);
-        r1.setNurseShiftPattern(8,Nurse.D);
+        r1.setNurseShiftPattern(8,Nurse.DN);
         r1.setNurseShiftPattern(9,Nurse.N);
 
         r1.setNurseGrade(0, Nurse.SRN);

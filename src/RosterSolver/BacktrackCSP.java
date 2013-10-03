@@ -45,8 +45,6 @@ public class BacktrackCSP
         /**
          * If the current state is complete then return the result
          */
-        //TODO update the isComplete() method to check if the day assignments are correct
-        //TODO i.e. enough people on each day, and the right number of SRNs etc
         if(currentState.isComplete())
         {
             return currentState;

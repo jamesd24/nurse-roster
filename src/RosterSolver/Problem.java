@@ -61,6 +61,8 @@ public class Problem
         // Create the arrays that hold the minShift amounts for day and night
         minShiftDay = new int[period];
         minShiftNight = new int[period];
+
+        setupShiftArrays();
     }
 
     /**
@@ -194,6 +196,9 @@ public class Problem
      */
     public boolean checkInitialState()
     {
+        // Setup the shift minimum arrays for later on, only done here as this code is run before any looping is done
+        setMinShifts();
+
         int numSRN = 0;
 
         for(Nurse nurse : nurseList)
@@ -296,12 +301,8 @@ public class Problem
         // Each day has enough people on each shift
         // Less on weekends and half on nights
 
-        if(!checkSrnShift(day))
-        {
-            return false;
-        }
-
-        return true;
+        //return checkSrnShift(day) && checkMinShifts(day);
+        return checkSrnShift(day);
     }
 
     /**
@@ -330,13 +331,84 @@ public class Problem
         return daySRN && nightSRN;
     }
 
+    private boolean checkMinShifts(int day)
+    {
+        int dayCount = 0;
+        int nightCount = 0;
+
+        for(int i = 0; i < nurses; i++)
+        {
+            if(getShift(i, day) == Roster.SHIFT_DAY)
+            {
+                dayCount++;
+            }
+            else if(getShift(i, day) == Roster.SHIFT_NIGHT)
+            {
+                nightCount++;
+            }
+        }
+
+        return dayCount >= minShiftDay[day] && nightCount >= minShiftNight[day];
+    }
+
     /**
      * Calculates the remaining minimum shift amounts for each of the days using the provided data as a baseline
      */
-    //TODO This needs to be worked out so that we know the minimum amount of people for each of the days
+    //TODO This might need tweaking a bit
     private void setMinShifts()
     {
+        /**
+         * Generate numbers for the rest of the days based on:
+         *  Half the roster to be working through the day
+         *      1/4 roster to be working night and 1/4 day off
+         */
+        int dayShift = (int) Math.ceil(nurses / 2.0);
+        int nightShift = (int) Math.ceil(dayShift / 2.0);
 
+        /**
+         * Fill in the rest of the days from tne values derived above
+         */
+        //TODO this code needs to be tidied up a bit, it could be made shorter
+        for(int i = 0; i < days; i++)
+        {
+            if(minShiftDay[i] == -1)
+            {
+                if(minShiftNight[i] == -1)
+                {
+                    minShiftDay[i] = dayShift;
+                    minShiftNight[i] = nightShift;
+                }
+                else
+                {
+                    minShiftDay[i] = minShiftNight[i]*2;
+                }
+            }
+
+            if(minShiftNight[i] == -1)
+            {
+                if(minShiftDay[i] == -1)
+                {
+                    minShiftDay[i] = dayShift;
+                    minShiftNight[i] = nightShift;
+                }
+                else
+                {
+                    minShiftNight[i] = (int) Math.ceil(minShiftDay[i] / 2.0);
+                }
+            }
+        }
+    }
+
+    /**
+     * Sets the minShiftDay and minShiftNight arrays to -1
+     */
+    private void setupShiftArrays()
+    {
+        for(int i = 0; i < days; i++)
+        {
+            minShiftDay[i] = -1;
+            minShiftNight[i] = -1;
+        }
     }
 
     /**
