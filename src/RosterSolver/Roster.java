@@ -99,7 +99,7 @@ public class Roster
             {
                 if(j == 0)
                 {
-                    System.out.print("Nurse " +(i+1) + ": ");
+                    System.out.print("Nurse " +(i+1) + ":\t");
                 }
                 if(roster[i][j] == SHIFT_DAY)
                 {

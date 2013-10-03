@@ -8,8 +8,8 @@ package RosterSolver;
  */
 public class RosterSolver
 {
-    private static final int NUM_NURSES_TEST = 5;
-    private static final int ROSTER_TYPE = Roster.ROSTER_14_DAY;
+    private static final int NUM_NURSES_TEST = 10;
+    private static final int ROSTER_TYPE = Roster.ROSTER_7_DAY;
 
     private Problem initialState;
 
@@ -31,14 +31,28 @@ public class RosterSolver
         r1.setNurseShiftPattern(2,Nurse.D);
         r1.setNurseShiftPattern(3,Nurse.N);
         r1.setNurseShiftPattern(4,Nurse.D);
+        r1.setNurseShiftPattern(5,Nurse.N);
+        r1.setNurseShiftPattern(6,Nurse.N);
+        r1.setNurseShiftPattern(7,Nurse.D);
+        r1.setNurseShiftPattern(8,Nurse.D);
+        r1.setNurseShiftPattern(9,Nurse.N);
 
         r1.setNurseGrade(0, Nurse.SRN);
         r1.setNurseGrade(1, Nurse.SRN);
         r1.setNurseGrade(2, Nurse.SRN);
         r1.setNurseGrade(3, Nurse.SRN);
-        r1.setNurseGrade(4, Nurse.SRN);
+        r1.setNurseGrade(4, Nurse.RN);
+        r1.setNurseGrade(5, Nurse.RN);
+        r1.setNurseGrade(6, Nurse.RN);
+        r1.setNurseGrade(7, Nurse.RN);
+        r1.setNurseGrade(8, Nurse.RN);
+        r1.setNurseGrade(9, Nurse.RN);
+
+        Long start = System.currentTimeMillis();
 
         Problem result = BacktrackCSP.rosterSolver(r1.initialState);
+
+        Long finish = System.currentTimeMillis();
 
         if(result != null)
         {
@@ -49,6 +63,8 @@ public class RosterSolver
         {
             System.out.print("\n" +error);
         }
+
+        System.out.println("\nRun time: " +((finish-start)/1000.00) +" seconds.");
 
     }
 
