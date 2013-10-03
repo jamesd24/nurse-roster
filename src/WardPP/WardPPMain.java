@@ -1,8 +1,6 @@
 package WardPP;
 
-import RosterWindow.RosterWindowController;
-import RosterWindow.RosterWindowModel;
-import RosterWindow.RosterWindowView;
+import Data.Ward;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,6 +11,12 @@ import RosterWindow.RosterWindowView;
  */
 public class WardPPMain {
     public WardPPMain() {
+        WardPPView theView = new WardPPView();
+        WardPPModel theModel = new WardPPModel();
+        WardPPController theController = new WardPPController(theView,theModel);
+        theView.setVisible(true);
+    }
+    public WardPPMain(Ward w){
         WardPPView theView = new WardPPView();
         WardPPModel theModel = new WardPPModel();
         WardPPController theController = new WardPPController(theView,theModel);

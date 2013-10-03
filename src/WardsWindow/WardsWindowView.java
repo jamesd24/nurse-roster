@@ -16,7 +16,7 @@ package WardsWindow;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-
+import java.awt.event.WindowFocusListener;
 import javax.swing.*;
 
 public class WardsWindowView extends JFrame{
@@ -25,7 +25,7 @@ public class WardsWindowView extends JFrame{
     private JButton propertiesButton = new JButton("Properties");
     private JButton rosterButton = new JButton("Roster");
     private JButton deleteWardeButton = new JButton("Delete Ward");
-    private JList wardsList = new JList();
+    public JList wardsList = new JList();
     private JScrollPane wardsPane = new JScrollPane();
 
     WardsWindowView(){
@@ -44,11 +44,6 @@ public class WardsWindowView extends JFrame{
         this.setResizable(false);
         this.add("North", titleLabel);
 
-        wardsList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Ward 1", "Ward 2", "Ward 3", "Ward 4", "Ward 5","Ward 6","Ward 7","Ward 8","Ward 9",  };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         wardsPane.setViewportView(wardsList);
         wardsPane.setPreferredSize(new Dimension(500, 370));
 
@@ -85,6 +80,9 @@ public class WardsWindowView extends JFrame{
     }
     void addDeleteWardListener(ActionListener l){
         deleteWardeButton.addActionListener(l);
+    }
+    void addFocusViewListener(WindowFocusListener l){
+        this.addWindowFocusListener(l);
     }
 
     // Open a popup that contains the error message passed

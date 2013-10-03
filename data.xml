@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wards>
+    <Ward>
+        <id>0</id>
+        <roster>7</roster>
+        <wardName>New Should have id 2</wardName>
+    </Ward>
+    <Ward>
+        <id>1</id>
+        <roster>7</roster>
+        <wardName>New Ward</wardName>
+    </Ward>
+</wards>

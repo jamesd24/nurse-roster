@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 public class WardPPView extends JFrame
 {
     private String[] lstring = {"Weekly","Fortnightly"};
-    private JTextField wardName = new JTextField();
+    public JTextField wardName = new JTextField();
     private JButton closeButton = new JButton("Close");
     private JButton okButton = new JButton("OK");
     private JButton applyButton = new JButton("Apply");
@@ -23,7 +23,7 @@ public class WardPPView extends JFrame
     private JButton deleteNurseButton = new JButton("Delete Nurse");
     private JList nurseList = new JList();
     private JScrollPane nursePane = new JScrollPane();
-    private JComboBox lengthBox = new JComboBox(lstring);
+    public JComboBox lengthBox = new JComboBox(lstring);
 
     WardPPView(){
 
@@ -47,7 +47,7 @@ public class WardPPView extends JFrame
         JLabel blank = new JLabel("                               ");
 
         nurseList.setModel(new AbstractListModel() {
-            String[] nstrings = { "List Of Nurses"  };
+            String[] nstrings = { "List Of Nurses|TODO"  };
             public int getSize() { return nstrings.length; }
             public Object getElementAt(int i) { return nstrings[i]; }
         });

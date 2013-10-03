@@ -34,23 +34,34 @@ public class WardPPController {
 
     class OkListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
-            theView.displayErrorMessage("To Be Implemented");
-
+            if((theView.wardName.getText().trim() == "")){
+                theView.displayErrorMessage("Error: Must specify ward name");
+            }
+            else{
+                int roster = theView.lengthBox.getSelectedIndex();
+                if(roster==0) roster = 7;
+                if(roster==1) roster = 14;
+                theModel.newWardDataToXML(theView.wardName.getText(),roster);
+                theView.dispose();
+            }
         }
     }
     class ApplyListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
-            theView.displayErrorMessage("To Be Implemented");
-
+            if((theView.wardName.getText().trim() == "")){
+                theView.displayErrorMessage("Error: Must specify ward name");
+            }
+            else{
+                int roster = theView.lengthBox.getSelectedIndex();
+                if(roster==0) roster = 7;
+                if(roster==1) roster = 14;
+                theModel.newWardDataToXML(theView.wardName.getText(),roster);
+            }
         }
     }
     class CloseListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
             theView.dispose();
-
         }
     }
     class AddNurseListener implements ActionListener{
@@ -62,9 +73,7 @@ public class WardPPController {
     }
     class DeleteNurseListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
             theView.displayErrorMessage("To Be Implemented");
-
         }
     }
     class PropertiesListener implements ActionListener{
