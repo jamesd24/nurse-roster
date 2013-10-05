@@ -353,9 +353,9 @@ public class Problem
         // Each day has enough people on each shift
         // Less on weekends and half on nights
 
-        //return checkSrnShift(day) && checkMinShifts(day);
+        return checkSrnShift(day) && checkMinShifts(day);
         //return checkSrnShift(day);
-        return checkMinShifts(day);
+        //return checkMinShifts(day);
         //return true;
     }
 
@@ -422,11 +422,11 @@ public class Problem
          *  Half the roster to be working through the day
          *      1/4 roster to be working night and 1/4 day off
          */
-        //int dayShift = (int) Math.ceil(nurses / 2.0);
-        //int nightShift = (int) Math.ceil(dayShift / 2.0);
+        int dayShift = nurses / 2;
+        int nightShift = dayShift / 2;
 
-        int dayShift = 4;
-        int nightShift = 2;
+        //int dayShift = 4;
+        //int nightShift = 2;
 
         /**
          * Fill in the rest of the days from tne values derived above
@@ -438,7 +438,7 @@ public class Problem
             {
                 if(minShiftNight[i] == -1)
                 {
-                    if((days % 6 == 0) || (days % 7 ==- 0 ))
+                    if((i % 6 == 0) || (i % 7 == 0 ))
                     {
                         minShiftDay[i] = dayShift -1;
                         minShiftNight[i] = nightShift -1;

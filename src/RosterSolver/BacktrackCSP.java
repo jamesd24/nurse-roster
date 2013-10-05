@@ -40,7 +40,7 @@ public class BacktrackCSP
         if(currentState == null)
         {
               currentState = initialState;
-    }
+        }
 
         /**
          * If the current state is complete then return the result
