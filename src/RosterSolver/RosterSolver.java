@@ -8,8 +8,12 @@ package RosterSolver;
  */
 public class RosterSolver
 {
-    private static final int NUM_NURSES_TEST = 10;
+    private static final int NUM_NURSES_TEST = 12;
     private static final int ROSTER_TYPE = Roster.ROSTER_7_DAY;
+
+    public static final int DAY_FIRST_SEARCH = 1;
+    public static final int NURSE_FIRST_SEARCH = 2;
+    public static final int SEARCH_TYPE = DAY_FIRST_SEARCH;
 
     private Problem initialState;
 
@@ -27,26 +31,32 @@ public class RosterSolver
         RosterSolver r1 = new RosterSolver(NUM_NURSES_TEST, ROSTER_TYPE);
 
         r1.setNurseShiftPattern(0,Nurse.D);
-        r1.setNurseShiftPattern(1,Nurse.N);
-        r1.setNurseShiftPattern(2,Nurse.D);
-        r1.setNurseShiftPattern(3,Nurse.N);
+        r1.setNurseShiftPattern(1,Nurse.DN);
+        r1.setNurseShiftPattern(2,Nurse.DN);
+        r1.setNurseShiftPattern(3,Nurse.DN);
+
         r1.setNurseShiftPattern(4,Nurse.D);
-        r1.setNurseShiftPattern(5,Nurse.N);
-        r1.setNurseShiftPattern(6,Nurse.N);
+        r1.setNurseShiftPattern(5,Nurse.D);
+        r1.setNurseShiftPattern(6,Nurse.D);
         r1.setNurseShiftPattern(7,Nurse.D);
-        r1.setNurseShiftPattern(8,Nurse.DN);
-        r1.setNurseShiftPattern(9,Nurse.N);
+        r1.setNurseShiftPattern(8,Nurse.D);
+        r1.setNurseShiftPattern(9,Nurse.DN);
+        r1.setNurseShiftPattern(10,Nurse.DN);
+        r1.setNurseShiftPattern(11,Nurse.N);
 
         r1.setNurseGrade(0, Nurse.SRN);
         r1.setNurseGrade(1, Nurse.SRN);
         r1.setNurseGrade(2, Nurse.SRN);
         r1.setNurseGrade(3, Nurse.SRN);
+
         r1.setNurseGrade(4, Nurse.RN);
         r1.setNurseGrade(5, Nurse.RN);
         r1.setNurseGrade(6, Nurse.RN);
         r1.setNurseGrade(7, Nurse.RN);
         r1.setNurseGrade(8, Nurse.RN);
         r1.setNurseGrade(9, Nurse.RN);
+        r1.setNurseGrade(10, Nurse.RN);
+        r1.setNurseGrade(11, Nurse.RN);
 
         Long start = System.currentTimeMillis();
 
@@ -58,13 +68,17 @@ public class RosterSolver
         {
             result.printRoster();
         }
+        else
+        {
+            System.out.println("\nSomething went wrong that I haven't made an error code for.");
+        }
 
         for(String error : Problem.error)
         {
             System.out.print("\n" +error);
         }
 
-        System.out.println("\nRun time: " +((finish-start)/1000.00) +" seconds.");
+        timeHandler(start, finish);
 
     }
 
@@ -83,5 +97,17 @@ public class RosterSolver
     public void setNurseGrade(int nurse, int grade)
     {
         initialState.setNurseGrade(nurse, grade);
+    }
+
+    private static void timeHandler(long start, long end)
+    {
+        long millis = end - start;
+        long second = (millis / 100) % 60;
+        long minute = (millis / (1000*60)) % 60;
+        long hour = (millis / (1000 * 60 * 60)) %24;
+
+        String time = String.format("%02d:%02d:%02d:%d", hour, minute, second, millis);
+
+        System.out.println(time);
     }
 }

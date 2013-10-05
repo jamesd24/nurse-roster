@@ -106,7 +106,7 @@ public class Problem
         /**
          * If the shift isn't a day off, add one to the amount of days since the last day off
          */
-        if(shift != Roster.SHIFT_OFF)
+        if(shift == Roster.SHIFT_DAY || shift == Roster.SHIFT_NIGHT)
         {
             nurseList[nurse].setLastOff(nurseList[nurse].getLastOff()+1);
         }
@@ -145,6 +145,14 @@ public class Problem
     }
 
     /**
+     * Returns the number of nurses in the roster
+     */
+    public int getNumNurses()
+    {
+        return nurses;
+    }
+
+    /**
      * Checks if all the places in the roster have been filled or not
      */
     public boolean isComplete()
@@ -165,6 +173,23 @@ public class Problem
      * Returns the next empty shift in the roster
      */
     public int[] getEmptyShift()
+    {
+        if(RosterSolver.SEARCH_TYPE == RosterSolver.DAY_FIRST_SEARCH)
+        {
+            return dayFirstSearch();
+        }
+        else if(RosterSolver.SEARCH_TYPE == RosterSolver.NURSE_FIRST_SEARCH)
+        {
+            return nurseFirstSearch();
+        }
+        else
+        {
+            return new int[] {-1,-1};
+        }
+    }
+    // Day first
+
+    public int[] dayFirstSearch()
     {
         int[] emptyDay = new int[2];
 
@@ -189,6 +214,34 @@ public class Problem
 
         return emptyDay;
     }
+
+    // Nurse First
+    public int[] nurseFirstSearch()
+    {
+        int[] emptyDay = new int[2];
+
+        // Search for an empty shift
+        for(int i = 0; i < nurses; i++)
+        {
+            for(int j = 0; j < days; j++)
+            {
+                if(roster.getShift(i,j) == Roster.NOT_SET)
+                {
+                    // If there is an empty shift then return the location
+                    emptyDay[0] = i;
+                    emptyDay[1] = j;
+                    return emptyDay;
+                }
+            }
+        }
+
+        // If there isn't then return -1
+        emptyDay[0] = -1;
+        emptyDay[1] = -1;
+
+        return emptyDay;
+    }
+
 
     /**
      * Used to check the setup of the roster doesn't contain any disallowed
@@ -235,12 +288,17 @@ public class Problem
         {
             if(nurse.getGrade() == Nurse.SRN)
             {
-                if(nurse.getShiftType() == Nurse.D || nurse.getShiftType() == Nurse.DN)
+                if(nurse.getShiftType() == Nurse.D)
                 {
                     daySRN++;
                 }
-                else if(nurse.getShiftType() == Nurse.N || nurse.getShiftType() == Nurse.DN)
+                else if(nurse.getShiftType() == Nurse.N)
                 {
+                    nightSRN++;
+                }
+                else if(nurse.getShiftType() == Nurse.DN)
+                {
+                    daySRN++;
                     nightSRN++;
                 }
             }
@@ -281,12 +339,6 @@ public class Problem
         // First check that the nurse in question can take the assigned shift type
         if(canTakeShift(nurse, shift) && isRightShiftType(nurse, shift))
         {
-            // If so, check if the shift type completes a day's roster
-            // Check if the nurse number is the same as the total number of nurses in the roster
-            if(nurse == nurses-1)
-            {
-                return checkDay(day);
-            }
             return true;
         }
         return false;
@@ -295,19 +347,22 @@ public class Problem
     /**
      * Checks that all the conditions on the days are fulfilled
      */
-    private boolean checkDay(int day)
+    public boolean checkDay(int day)
     {
         //TODO Checks needed:
         // Each day has enough people on each shift
         // Less on weekends and half on nights
 
         //return checkSrnShift(day) && checkMinShifts(day);
-        return checkSrnShift(day);
+        //return checkSrnShift(day);
+        return checkMinShifts(day);
+        //return true;
     }
 
     /**
      * Checks the schedule to make sure the given day has a SRN working both the day and the night shift
      */
+    //TODO I think this is checking before the assignment, maybe?
     private boolean checkSrnShift(int day)
     {
         boolean daySRN = false;
@@ -331,6 +386,10 @@ public class Problem
         return daySRN && nightSRN;
     }
 
+    /**
+     * Checks that the given day has enough people working each shift
+     * defined in the minShift array
+     */
     private boolean checkMinShifts(int day)
     {
         int dayCount = 0;
@@ -355,6 +414,7 @@ public class Problem
      * Calculates the remaining minimum shift amounts for each of the days using the provided data as a baseline
      */
     //TODO This might need tweaking a bit
+    //TODO still needs to have the weekend = less staffing set
     private void setMinShifts()
     {
         /**
@@ -362,8 +422,11 @@ public class Problem
          *  Half the roster to be working through the day
          *      1/4 roster to be working night and 1/4 day off
          */
-        int dayShift = (int) Math.ceil(nurses / 2.0);
-        int nightShift = (int) Math.ceil(dayShift / 2.0);
+        //int dayShift = (int) Math.ceil(nurses / 2.0);
+        //int nightShift = (int) Math.ceil(dayShift / 2.0);
+
+        int dayShift = 4;
+        int nightShift = 2;
 
         /**
          * Fill in the rest of the days from tne values derived above
@@ -375,6 +438,12 @@ public class Problem
             {
                 if(minShiftNight[i] == -1)
                 {
+                    if((days % 6 == 0) || (days % 7 ==- 0 ))
+                    {
+                        minShiftDay[i] = dayShift -1;
+                        minShiftNight[i] = nightShift -1;
+                    }
+
                     minShiftDay[i] = dayShift;
                     minShiftNight[i] = nightShift;
                 }
@@ -388,6 +457,12 @@ public class Problem
             {
                 if(minShiftDay[i] == -1)
                 {
+                    if((days % 6 == 0) || (days % 7 ==- 0 ))
+                    {
+                        minShiftDay[i] = dayShift -1;
+                        minShiftNight[i] = nightShift -1;
+                    }
+
                     minShiftDay[i] = dayShift;
                     minShiftNight[i] = nightShift;
                 }
@@ -532,7 +607,7 @@ public class Problem
     /**
      * Creates error strings, discards repeat errors
      */
-    private void errorHandler(String in)
+    public void errorHandler(String in)
     {
         if(!error.contains(in))
         {

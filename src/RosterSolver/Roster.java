@@ -122,5 +122,6 @@ public class Roster
 
             }
         }
+        System.out.print("\n");
     }
 }

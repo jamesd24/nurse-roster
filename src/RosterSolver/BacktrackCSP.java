@@ -39,8 +39,8 @@ public class BacktrackCSP
         //TODO you display the set shifts in red, so this could be changed for a list of shifts which were set and initialState removed
         if(currentState == null)
         {
-            currentState = initialState;
-        }
+              currentState = initialState;
+    }
 
         /**
          * If the current state is complete then return the result
@@ -58,6 +58,7 @@ public class BacktrackCSP
         /**
          * If there is another empty shift then keep filling them
          */
+        //TODO Check if I need this
         if(emptyShift[0] != -1)
         {
             /**
@@ -73,25 +74,52 @@ public class BacktrackCSP
                 {
                     currentState.setNurseShift(emptyShift[0], emptyShift[1], shift);
 
-                    //TODO PRINT FUNCTION GOES HERE TO DISPLAY UPDATING VIEW
-                    //currentState.printRoster();
-                    //System.out.print("\n");
-
-                    result = backtrackSearch(currentState, initialState);
-
-                    /**
-                     * If the result of the search was null then it failed and the shift type needs to be reset
-                     * If not then return the result
-                     */
-                    if(result != null)
+                    // If the nurse selected is the last one in the day check the day is complete
+                    if(emptyShift[0] == currentState.getNumNurses() -1)
                     {
-                        return result;
+                        // If the day is fine then continue
+                        if(currentState.checkDay(emptyShift[1]))
+                        {
+
+                            //currentState.printRoster();
+                            result = backtrackSearch(currentState, initialState);
+
+                            if(result != null)
+                            {
+                                return result;
+                            }
+                            //TODO This is maybe wrong
+                            else
+                            {
+                                currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.NOT_SET);
+                            }
+                        }
+                        else
+                        {
+                            currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.NOT_SET);
+                        }
                     }
-                    //TODO I think this is correct now, not certain, needs further investigation
                     else
                     {
-                        currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.NOT_SET);
+                        //currentState.printRoster();
+
+                        result = backtrackSearch(currentState, initialState);
+
+                        /**
+                         * If the result of the search was null then it failed and the shift type needs to be reset
+                         * If not then return the result
+                         */
+                        if(result != null)
+                        {
+                            return result;
+                        }
+                        //TODO I think this is correct now, not certain, needs further investigation
+                        else
+                        {
+                            currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.NOT_SET);
+                        }
                     }
+
                 }
             }
         }
