@@ -7,13 +7,37 @@
             <shiftPattern>DN</shiftPattern>
             <shifts>5</shifts>
         </Nurse>
-        <Nurse id="0">
+        <Nurse id="1">
             <nurseName>TestNurse2</nurseName>
-            <qualification>RN</qualification>
+            <qualification>SRN</qualification>
             <shiftPattern>DN</shiftPattern>
             <shifts>5</shifts>
         </Nurse>
-        <roster>14</roster>
-        <wardName>Test Ward1</wardName>
+        <Nurse id="0">
+            <nurseName>TestNurse3</nurseName>
+            <qualification>SRN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="1">
+            <nurseName>TestNurse4</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>N</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="0">
+            <nurseName>TestNurse5</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="1">
+            <nurseName>TestNurse6</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>N</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <roster>7</roster>
+        <wardName>Test Ward 1</wardName>
     </Ward>
 </wards>
