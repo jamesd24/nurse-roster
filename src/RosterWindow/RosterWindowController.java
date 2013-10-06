@@ -30,7 +30,7 @@ public class RosterWindowController {
     class GenerateListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
-            theView.displayErrorMessage("To Be Implemented| Phil starts here | RosterWindowModel");
+            theModel.generateRoster();
 
         }
     }

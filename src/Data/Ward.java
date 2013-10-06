@@ -1,6 +1,9 @@
 package Data;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,13 +17,16 @@ public class Ward {
      private String wardName;
      private int id;
      private int roster;
+     private ArrayList<Nurse> listOfNurses;
+
     public Ward(){
     }
-    public Ward(String wardName, int roster, int id) {
+    public Ward(String wardName, int roster, int id, ArrayList<Nurse> listOfNurses) {
         super();
         this.wardName = wardName;
         this.id = id;
         this.roster = roster;
+        this.listOfNurses = listOfNurses;
     }
     public String getWardName() {
         return wardName;
@@ -37,8 +43,16 @@ public class Ward {
     public int getId() {
         return id;
     }
+    @XmlAttribute
     public void setId(int id) {
         this.id = id;
+    }
+    public ArrayList<Nurse> getListOfNurses(){
+        return listOfNurses;
+    }
+    @XmlElement(name = "Nurse")
+    public void setListOfNurses(ArrayList<Nurse> listOfNurses) {
+        this.listOfNurses = listOfNurses;
     }
 }
 

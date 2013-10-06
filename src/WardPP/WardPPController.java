@@ -8,6 +8,11 @@ package WardPP;
  * To change this template use File | Settings | File Templates.
  */
 
+//TODO Figure out how to save the properties of the ward without creating a new ward.
+//TODO Make sure pressing the ok button after the apply button doesn't create 2 wards.
+
+
+import Data.Ward;
 import NursePP.NursePPMain;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +25,15 @@ public class WardPPController {
     private WardPPView theView;
     private WardPPModel theModel;
 
+    public WardPPController(WardPPView theView, WardPPModel theModel, Ward w) {
+        setupController(theView,theModel);
+        this.theView.setupPropertiesData(w);
+    }
     public WardPPController(WardPPView theView, WardPPModel theModel) {
+        setupController(theView,theModel);
+        this.theView.setTitle("New Ward");
+    }
+    private void setupController(WardPPView theView, WardPPModel theModel){
         this.theView = theView;
         this.theModel = theModel;
 

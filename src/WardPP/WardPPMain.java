@@ -19,7 +19,7 @@ public class WardPPMain {
     public WardPPMain(Ward w){
         WardPPView theView = new WardPPView();
         WardPPModel theModel = new WardPPModel();
-        WardPPController theController = new WardPPController(theView,theModel);
+        WardPPController theController = new WardPPController(theView,theModel, w);
         theView.setVisible(true);
     }
 }

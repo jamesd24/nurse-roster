@@ -1,5 +1,6 @@
 package WardPP;
 
+import Data.Nurse;
 import Data.Ward;
 import Data.Wards;
 import Data.XmlHandler;
@@ -21,7 +22,13 @@ public class WardPPModel {
         wardList = xml.getWardsFromXML();
     }
     public void newWardDataToXML(String name, int roster){
-        Ward newWard = new Ward(name,roster,generateNewId());
+        ArrayList<Nurse> nurses = new ArrayList<Nurse>();
+        Nurse testNurse1 = new Nurse("TestNurse1", 0, "SRN",5,"DN");
+        Nurse testNurse2 = new Nurse("TestNurse2", 1, "RN",5,"DN");
+        nurses.add(testNurse1);
+        nurses.add(testNurse2);
+
+        Ward newWard = new Ward(name,roster,generateNewId(), nurses);
         ArrayList<Ward> w = wardList.getListOfWards();
         w.add(newWard);
         wardList.setListOfWards(w);

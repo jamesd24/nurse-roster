@@ -45,7 +45,7 @@ public class WardsWindowController {
     class RosterListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
-            RosterWindowMain roster = new RosterWindowMain();
+            RosterWindowMain roster = new RosterWindowMain(theModel.getWardAt(theView.wardsList.getSelectedIndex()));
 
         }
     }
@@ -58,8 +58,10 @@ public class WardsWindowController {
     }
     class PropertiesListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            WardPPMain pp = new WardPPMain(theModel.getWardAt(theView.wardsList.getSelectedIndex()));
-
+            if(!(theView.wardsList.getSelectedIndex() == -1)){
+                WardPPMain pp = new WardPPMain(theModel.getWardAt(theView.wardsList.getSelectedIndex()));
+            }
+            else theView.displayErrorMessage("Error: Select a ward");
         }
     }
     class DeleteWardListener implements ActionListener{

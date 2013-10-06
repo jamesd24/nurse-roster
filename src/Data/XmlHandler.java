@@ -13,6 +13,8 @@ import javax.xml.bind.Unmarshaller;
  * Time: 11:37 AM
  * To change this template use File | Settings | File Templates.
  */
+
+//TODO Be able to handle nurse information.
 public class XmlHandler {
     public void writeWardsToXML(Wards wards){
         try{

@@ -1,5 +1,7 @@
 package WardPP;
 
+import Data.Ward;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -117,6 +119,12 @@ public class WardPPView extends JFrame
 
         JOptionPane.showMessageDialog(this, errorMessage);
 
+    }
+    public void setupPropertiesData(Ward w){
+        this.setTitle(w.getWardName());
+        wardName.setText(w.getWardName());
+        if(w.getRoster() == 7) lengthBox.setSelectedIndex(0);
+        else lengthBox.setSelectedIndex(1);
     }
 
 }

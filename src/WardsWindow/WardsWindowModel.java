@@ -27,7 +27,7 @@ public class WardsWindowModel {
         wardList = xml.getWardsFromXML();
         ArrayList<String> wardListString = new ArrayList<String>();
         for(int i = 0; i < wardList.getListOfWards().size() ; i++){
-            wardListString.add(wardList.getListOfWards().get(i).getWardName() + " - " + wardList.getListOfWards().get(i).getRoster() + " Day Roster - Nurses:{NurseNumTODO}");
+            wardListString.add(wardList.getListOfWards().get(i).getWardName() + " - " + wardList.getListOfWards().get(i).getRoster() + " Day Roster - Nurses: "+ wardList.getListOfWards().get(i).getListOfNurses().size());
         }
         return wardListString;
     }
