@@ -21,24 +21,31 @@ public class NursePPController {
 
     private NursePPView theView;
     private WardPPModel theModel;
+    private Boolean isProperties = false;
+    private Nurse selectedNurse;
 
+    public NursePPController(NursePPView theView, WardPPModel theModel, Nurse n) {
+        setupController(theView,theModel);
+        isProperties = true;
+        selectedNurse = n;
+        this.theView.setupPropertiesData(n);
+
+    }
     public NursePPController(NursePPView theView, WardPPModel theModel) {
+        setupController(theView,theModel);
+        this.theView.setTitle("New Ward");
+    }
+    private void setupController(NursePPView theView, WardPPModel theModel){
         this.theView = theView;
         this.theModel = theModel;
-
-        // Tell the View that when ever a button
-        // is clicked to execute the actionPerformed method
-
-        this.theView.addOkListener(new OkListener());
         this.theView.addCloseListener(new CloseListener());
+        this.theView.addOkListener(new OkListener());
         this.theView.addApplyListener(new ApplyListener());
-
     }
 
     class OkListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            //TODO Change shift num from 5 to variable number / implement shift number box
-            //TODO find next nurse id to use here.
+            //TODO Implement Error Handling and Constraints.
             Nurse n = new Nurse(theView.nurseName.getText(),theModel.generateNurseId(),theView.QualificationBox.getSelectedItem().toString(),Integer.parseInt(theView.shiftNum.getText()),theView.ShiftBox.getSelectedItem().toString());
             theModel.nurseList.add(n);
             theView.dispose();
@@ -46,7 +53,7 @@ public class NursePPController {
     }
     class ApplyListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
+            //TODO Implement Applybutton in NursePP
             theView.displayErrorMessage("To Be Implemented");
 
         }

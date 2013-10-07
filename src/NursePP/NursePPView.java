@@ -1,5 +1,7 @@
 package NursePP;
 
+import Data.Nurse;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -99,6 +101,12 @@ public class NursePPView extends JFrame
         JOptionPane.showMessageDialog(this, errorMessage);
 
     }
-
+    public void setupPropertiesData(Nurse n){
+        this.setTitle(n.getNurseName()+ " - Properties");
+        nurseName.setText(n.getNurseName());
+        shiftNum.setText(Integer.toString(n.getShifts()));
+        ShiftBox.setSelectedItem(n.getShiftPattern());
+        QualificationBox.setSelectedItem(n.getQualification());
+    }
 }
 

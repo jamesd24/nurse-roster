@@ -8,10 +8,6 @@ package WardPP;
  * To change this template use File | Settings | File Templates.
  */
 
-//TODO Figure out how to save the properties of the ward without creating a new ward.
-//TODO Make sure pressing the ok button after the apply button doesn't create 2 wards.
-
-
 import Data.Ward;
 import NursePP.NursePPMain;
 
@@ -29,12 +25,16 @@ public class WardPPController {
 
         private WardPPView theView;
         private WardPPModel theModel;
+        private Boolean isProperties = false;
+        private Ward selectedWard;
 
-        public WardPPController(WardPPView theView, WardPPModel theModel, Ward w) {
-            setupController(theView,theModel);
-            this.theView.setupPropertiesData(w);
+    public WardPPController(WardPPView theView, WardPPModel theModel, Ward w) {
+        setupController(theView,theModel);
+        isProperties = true;
+        selectedWard = w;
+        this.theView.setupPropertiesData(w);
 
-        }
+    }
     public WardPPController(WardPPView theView, WardPPModel theModel) {
         setupController(theView,theModel);
         this.theView.setTitle("New Ward");
@@ -69,7 +69,12 @@ public class WardPPController {
                 int roster = theView.lengthBox.getSelectedIndex();
                 if(roster==0) roster = 7;
                 if(roster==1) roster = 14;
-                theModel.newWardDataToXML(theView.wardName.getText(),roster);
+                if(isProperties == false){
+                    theModel.newWardDataToXML(theView.wardName.getText(),roster);
+                }
+                else {
+                    theModel.replaceWardData(theView.wardName.getText(),roster, selectedWard);
+                }
                 theView.dispose();
             }
         }
@@ -83,7 +88,12 @@ public class WardPPController {
                 int roster = theView.lengthBox.getSelectedIndex();
                 if(roster==0) roster = 7;
                 if(roster==1) roster = 14;
-                theModel.newWardDataToXML(theView.wardName.getText(),roster);
+                if(isProperties == false){
+                    theModel.newWardDataToXML(theView.wardName.getText(),roster);
+                }
+                else {
+                    theModel.replaceWardData(theView.wardName.getText(),roster, selectedWard);
+                }
             }
         }
     }
@@ -99,14 +109,20 @@ public class WardPPController {
     }
     class DeleteNurseListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
+            //TODO Implement DeleteNurse in WardPP
             theView.displayErrorMessage("To Be Implemented");
         }
     }
     class PropertiesListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            theView.displayErrorMessage("To Be Implemented");
+            //TODO Implement Properties to open existing Nurse in WardPP
+            if(!(theView.nurseList.getSelectedIndex() == -1)){
+               NursePPMain pp = new NursePPMain(theModel.nurseList.get(theView.nurseList.getSelectedIndex()), theModel);
+            }
+            else theView.displayErrorMessage("Error: Select a nurse");
+            }
         }
-    }
+
     class FocusListener extends WindowAdapter {
         public void windowGainedFocus(WindowEvent e){
             refreshWardsList();

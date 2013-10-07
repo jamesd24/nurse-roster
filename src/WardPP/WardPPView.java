@@ -125,7 +125,7 @@ public class WardPPView extends JFrame
 
     }
     public void setupPropertiesData(Ward w){
-        this.setTitle(w.getWardName());
+        this.setTitle(w.getWardName()+ " - Properties");
         wardName.setText(w.getWardName());
         if(w.getRoster() == 7) lengthBox.setSelectedIndex(0);
         else lengthBox.setSelectedIndex(1);

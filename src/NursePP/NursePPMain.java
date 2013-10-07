@@ -1,6 +1,8 @@
 package NursePP;
 
+import Data.Nurse;
 import WardPP.WardPPModel;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,6 +16,12 @@ public class NursePPMain {
         NursePPView theView = new NursePPView();
         WardPPModel theModel = m;
         NursePPController theController = new NursePPController(theView,theModel);
+        theView.setVisible(true);
+    }
+    public NursePPMain(Nurse n, WardPPModel m){
+        NursePPView theView = new NursePPView();
+        WardPPModel theModel = m;
+        NursePPController theController = new NursePPController(theView,theModel, n);
         theView.setVisible(true);
     }
 }

@@ -36,6 +36,13 @@ public class WardPPModel {
         wardList.setListOfWards(w);
         xml.writeWardsToXML(wardList);
     }
+    public void replaceWardData(String name, int roster,Ward w){
+        Ward newWard = new Ward(name,roster,w.getId(), nurseList);
+        ArrayList<Ward> wardArray = wardList.getListOfWards();
+        wardArray.set(w.getId(), newWard);
+        wardList.setListOfWards(wardArray);
+        xml.writeWardsToXML(wardList);
+    }
     private int generateNewId(){
         ArrayList<Ward> w = wardList.getListOfWards();
     int id = w.get(w.size()-1).getId()+1;
@@ -46,7 +53,6 @@ public class WardPPModel {
         return id;
     }
     //Used for now to replicate Default nurse information.
-    //TODO IMPLEMENT NURSE PP
     private void setupDefaultNurses(){
         ArrayList<Nurse> nurses = new ArrayList<Nurse>();
         Nurse testNurse1 = new Nurse("TestNurse1", 0, "SRN",5,"DN");
