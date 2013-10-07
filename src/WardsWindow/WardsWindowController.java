@@ -44,16 +44,15 @@ public class WardsWindowController {
 
     class RosterListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
-            RosterWindowMain roster = new RosterWindowMain(theModel.getWardAt(theView.wardsList.getSelectedIndex()));
-
+            if(!(theView.wardsList.getSelectedIndex() == -1)){
+                RosterWindowMain roster = new RosterWindowMain(theModel.getWardAt(theView.wardsList.getSelectedIndex()));
+            }
+            else theView.displayErrorMessage("Error: Select a ward");
         }
     }
     class NewWardListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
             WardPPMain pp = new WardPPMain();
-
         }
     }
     class PropertiesListener implements ActionListener{
@@ -66,13 +65,16 @@ public class WardsWindowController {
     }
     class DeleteWardListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            if(theView.wardsList.getModel().getSize() == 1){
-                theView.displayErrorMessage("Error: Must contain at least one ward");
+            if(!(theView.wardsList.getSelectedIndex() == -1)){
+                if(theView.wardsList.getModel().getSize() == 1){
+                    theView.displayErrorMessage("Error: Must contain at least one ward");
+                }
+                else{
+                    theModel.deleteWard(theView.wardsList.getSelectedIndex());
+                    refreshWardsList();
+                }
             }
-            else{
-                theModel.deleteWard(theView.wardsList.getSelectedIndex());
-                refreshWardsList();
-            }
+            else theView.displayErrorMessage("Error: Select a ward");
         }
     }
     class FocusListener extends WindowAdapter {

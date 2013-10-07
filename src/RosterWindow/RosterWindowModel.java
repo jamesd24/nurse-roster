@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class RosterWindowModel {
     // Holds the values of the selected Ward to be used for Roster generation.
-    private Ward ward;
+    public Ward ward;
 
     public RosterWindowModel(){}
 

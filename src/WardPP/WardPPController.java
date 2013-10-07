@@ -42,7 +42,7 @@ public class WardPPController {
     private void setupController(WardPPView theView, WardPPModel theModel){
         this.theView = theView;
         this.theModel = theModel;
-        refreshWardsList();
+        refreshNurseList();
         this.theView.addOkListener(new OkListener());
         this.theView.addNurseListener(new AddNurseListener());
         this.theView.addCloseListener(new CloseListener());
@@ -51,7 +51,7 @@ public class WardPPController {
         this.theView.addDeleteListener(new DeleteNurseListener());
         this.theView.addFocusViewListener(new FocusListener());
     }
-    private void refreshWardsList() {
+    private void refreshNurseList() {
         ArrayList<String> nurseList = theModel.getNurseList();
         DefaultListModel m = new DefaultListModel();
         for(int i = 0; i < nurseList.size() ; ++i){
@@ -89,7 +89,11 @@ public class WardPPController {
                 if(roster==0) roster = 7;
                 if(roster==1) roster = 14;
                 if(isProperties == false){
+                    //TODO Pressing multiple applies will create more wards if the isProperties is false.
                     theModel.newWardDataToXML(theView.wardName.getText(),roster);
+                    selectedWard = theModel.wardList.getListOfWards().get(theModel.wardList.getListOfWards().size()-1);
+                    isProperties = true;
+                    theView.setupPropertiesData(selectedWard);
                 }
                 else {
                     theModel.replaceWardData(theView.wardName.getText(),roster, selectedWard);
@@ -109,13 +113,17 @@ public class WardPPController {
     }
     class DeleteNurseListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            //TODO Implement DeleteNurse in WardPP
-            theView.displayErrorMessage("To Be Implemented");
+
+            if(!(theView.nurseList.getSelectedIndex() == -1)){
+                theModel.nurseList.remove(theView.nurseList.getSelectedIndex());
+                theModel.resetIds(theModel.nurseList);
+                refreshNurseList();
+            }
+            else theView.displayErrorMessage("Error: Select a nurse");
         }
     }
     class PropertiesListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            //TODO Implement Properties to open existing Nurse in WardPP
             if(!(theView.nurseList.getSelectedIndex() == -1)){
                NursePPMain pp = new NursePPMain(theModel.nurseList.get(theView.nurseList.getSelectedIndex()), theModel);
             }
@@ -125,7 +133,7 @@ public class WardPPController {
 
     class FocusListener extends WindowAdapter {
         public void windowGainedFocus(WindowEvent e){
-            refreshWardsList();
+            refreshNurseList();
         }
     }
 }

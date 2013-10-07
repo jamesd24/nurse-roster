@@ -38,6 +38,6 @@
             <shifts>5</shifts>
         </Nurse>
         <roster>7</roster>
-        <wardName>Test Ward 1</wardName>
+        <wardName>TestWard</wardName>
     </Ward>
 </wards>

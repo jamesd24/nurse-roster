@@ -46,16 +46,31 @@ public class NursePPController {
     class OkListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             //TODO Implement Error Handling and Constraints.
-            Nurse n = new Nurse(theView.nurseName.getText(),theModel.generateNurseId(),theView.QualificationBox.getSelectedItem().toString(),Integer.parseInt(theView.shiftNum.getText()),theView.ShiftBox.getSelectedItem().toString());
-            theModel.nurseList.add(n);
+            if(isProperties == true){
+                Nurse n = new Nurse(theView.nurseName.getText(),selectedNurse.getId(),theView.QualificationBox.getSelectedItem().toString(),Integer.parseInt(theView.shiftNum.getText()),theView.ShiftBox.getSelectedItem().toString());
+                theModel.nurseList.set(selectedNurse.getId(), n);
+            }
+            else {
+                Nurse n = new Nurse(theView.nurseName.getText(),theModel.generateNurseId(),theView.QualificationBox.getSelectedItem().toString(),Integer.parseInt(theView.shiftNum.getText()),theView.ShiftBox.getSelectedItem().toString());
+                theModel.nurseList.add(n);
+            }
             theView.dispose();
         }
     }
     class ApplyListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            //TODO Implement Applybutton in NursePP
-            theView.displayErrorMessage("To Be Implemented");
-
+            //TODO Implement Error Handling and Constraints.
+            if(isProperties == true){
+                Nurse n = new Nurse(theView.nurseName.getText(),selectedNurse.getId(),theView.QualificationBox.getSelectedItem().toString(),Integer.parseInt(theView.shiftNum.getText()),theView.ShiftBox.getSelectedItem().toString());
+                theModel.nurseList.set(selectedNurse.getId(), n);
+            }
+            else {
+                Nurse n = new Nurse(theView.nurseName.getText(),theModel.generateNurseId(),theView.QualificationBox.getSelectedItem().toString(),Integer.parseInt(theView.shiftNum.getText()),theView.ShiftBox.getSelectedItem().toString());
+                theModel.nurseList.add(n);
+                selectedNurse = n;
+                isProperties = true;
+                theView.setupPropertiesData(selectedNurse);
+            }
         }
     }
     class CloseListener implements ActionListener{

@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Model for WardPP used to new ward and existing ward data. Both WardPP and NursePP use this Model.
  */
 public class WardPPModel {
-    private Wards wardList;
+    public Wards wardList;
     public ArrayList<Nurse> nurseList;
     private XmlHandler xml = new XmlHandler();
 
@@ -76,5 +76,11 @@ public class WardPPModel {
             nList.add(nurseList.get(i).getNurseName() + " - " + nurseList.get(i).getQualification() + " - "+ nurseList.get(i).getShiftPattern()+ " - " +nurseList.get(i).getShifts());
         }
         return nList;
+    }
+    public ArrayList<Nurse> resetIds(ArrayList<Nurse> nl){
+        for(int i = 0; i < nl.size() ; ++i){
+            nl.get(i).setId(i);
+        }
+        return nl;
     }
 }

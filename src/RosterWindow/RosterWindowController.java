@@ -21,7 +21,7 @@ public class RosterWindowController {
     public RosterWindowController(RosterWindowView theView, RosterWindowModel theModel) {
         this.theView = theView;
         this.theModel = theModel;
-
+        this.theView.setTitle(theModel.ward.getWardName() + " - Roster");
         this.theView.addGenerateListener(new GenerateListener());
         this.theView.addPrintListener(new PrintListener());
         this.theView.addCloseListener(new CloseListener());
@@ -29,23 +29,17 @@ public class RosterWindowController {
 
     class GenerateListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
             theModel.generateRoster();
-
         }
     }
     class PrintListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
             theView.displayErrorMessage("To Be Implemented");
-
         }
     }
     class CloseListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
             theView.dispose();
-
         }
     }
 }
