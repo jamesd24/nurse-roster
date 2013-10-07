@@ -5,6 +5,7 @@ import Data.Ward;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowFocusListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,7 +24,7 @@ public class WardPPView extends JFrame
     private JButton addNurseButton = new JButton("Add Nurse");
     private JButton propertiesButton = new JButton("Properties");
     private JButton deleteNurseButton = new JButton("Delete Nurse");
-    private JList nurseList = new JList();
+    public JList nurseList = new JList();
     private JScrollPane nursePane = new JScrollPane();
     public JComboBox lengthBox = new JComboBox(lstring);
 
@@ -112,6 +113,9 @@ public class WardPPView extends JFrame
     }
     void addDeleteListener(ActionListener l){
         deleteNurseButton.addActionListener(l);
+    }
+    void addFocusViewListener(WindowFocusListener l){
+        this.addWindowFocusListener(l);
     }
     // Open a popup that contains the error message passed
 

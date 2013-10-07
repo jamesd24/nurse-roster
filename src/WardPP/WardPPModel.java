@@ -12,18 +12,25 @@ import java.util.ArrayList;
  * User: James
  * Date: 9/29/13
  * Time: 4:14 PM
- * To change this template use File | Settings | File Templates.
+ * Model for WardPP used to new ward and existing ward data. Both WardPP and NursePP use this Model.
  */
 public class WardPPModel {
     private Wards wardList;
+    public ArrayList<Nurse> nurseList;
     private XmlHandler xml = new XmlHandler();
 
-    WardPPModel(){
+    WardPPModel(Ward w){
+        //Properties
         wardList = xml.getWardsFromXML();
+        nurseList = w.getListOfNurses();
+    }
+    WardPPModel(){
+        //New Ward
+        wardList = xml.getWardsFromXML();
+        setupDefaultNurses();
     }
     public void newWardDataToXML(String name, int roster){
-        ArrayList<Nurse> nurses = setupDefaultNurses();
-        Ward newWard = new Ward(name,roster,generateNewId(), nurses);
+        Ward newWard = new Ward(name,roster,generateNewId(), nurseList);
         ArrayList<Ward> w = wardList.getListOfWards();
         w.add(newWard);
         wardList.setListOfWards(w);
@@ -34,8 +41,13 @@ public class WardPPModel {
     int id = w.get(w.size()-1).getId()+1;
     return id;
     }
+    public int generateNurseId(){
+        int id = nurseList.get(nurseList.size()-1).getId()+1;
+        return id;
+    }
     //Used for now to replicate Default nurse information.
-    private ArrayList<Nurse> setupDefaultNurses(){
+    //TODO IMPLEMENT NURSE PP
+    private void setupDefaultNurses(){
         ArrayList<Nurse> nurses = new ArrayList<Nurse>();
         Nurse testNurse1 = new Nurse("TestNurse1", 0, "SRN",5,"DN");
         Nurse testNurse2 = new Nurse("TestNurse2", 1, "SRN",5,"DN");
@@ -49,6 +61,14 @@ public class WardPPModel {
         nurses.add(testNurse4);
         nurses.add(testNurse5);
         nurses.add(testNurse6);
-        return nurses;
+        nurseList = nurses;
+    }
+    //Gets a list of nurses used in the listPane in WardPP
+    public ArrayList<String> getNurseList(){
+        ArrayList<String> nList = new ArrayList<String>();
+        for(int i = 0; i < nurseList.size() ; i++){
+            nList.add(nurseList.get(i).getNurseName() + " - " + nurseList.get(i).getQualification() + " - "+ nurseList.get(i).getShiftPattern()+ " - " +nurseList.get(i).getShifts());
+        }
+        return nList;
     }
 }

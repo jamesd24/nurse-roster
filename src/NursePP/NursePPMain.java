@@ -1,5 +1,7 @@
 package NursePP;
 
+import WardPP.WardPPModel;
+
 /**
  * Created with IntelliJ IDEA.
  * User: James
@@ -8,9 +10,9 @@ package NursePP;
  * To change this template use File | Settings | File Templates.
  */
 public class NursePPMain {
-    public NursePPMain() {
+    public NursePPMain(WardPPModel m) {
         NursePPView theView = new NursePPView();
-        NursePPModel theModel = new NursePPModel();
+        WardPPModel theModel = m;
         NursePPController theController = new NursePPController(theView,theModel);
         theView.setVisible(true);
     }

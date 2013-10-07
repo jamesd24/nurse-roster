@@ -8,6 +8,9 @@ package NursePP;
  * To change this template use File | Settings | File Templates.
  */
 
+import Data.Nurse;
+import WardPP.WardPPModel;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,9 +20,9 @@ import java.awt.event.ActionListener;
 public class NursePPController {
 
     private NursePPView theView;
-    private NursePPModel theModel;
+    private WardPPModel theModel;
 
-    public NursePPController(NursePPView theView, NursePPModel theModel) {
+    public NursePPController(NursePPView theView, WardPPModel theModel) {
         this.theView = theView;
         this.theModel = theModel;
 
@@ -34,9 +37,11 @@ public class NursePPController {
 
     class OkListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
-            theView.displayErrorMessage("To Be Implemented");
-
+            //TODO Change shift num from 5 to variable number / implement shift number box
+            //TODO find next nurse id to use here.
+            Nurse n = new Nurse(theView.nurseName.getText(),theModel.generateNurseId(),theView.QualificationBox.getSelectedItem().toString(),Integer.parseInt(theView.shiftNum.getText()),theView.ShiftBox.getSelectedItem().toString());
+            theModel.nurseList.add(n);
+            theView.dispose();
         }
     }
     class ApplyListener implements ActionListener{

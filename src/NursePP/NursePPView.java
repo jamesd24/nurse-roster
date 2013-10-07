@@ -18,10 +18,10 @@ public class NursePPView extends JFrame
     private JButton closeButton = new JButton("Close");
     private JButton okButton = new JButton("OK");
     private JButton applyButton = new JButton("Apply");
-    private JComboBox ShiftBox = new JComboBox(pstring);
-    private JComboBox QualificationBox = new JComboBox(qstring);
-    private JTextField nurseName = new JTextField(10);
-    private JTextField shiftNum = new JTextField(2);
+    public JComboBox ShiftBox = new JComboBox(pstring);
+    public JComboBox QualificationBox = new JComboBox(qstring);
+    public JTextField nurseName = new JTextField(10);
+    public JTextField shiftNum = new JTextField(2);
 
 
     NursePPView(){
