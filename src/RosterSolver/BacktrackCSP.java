@@ -9,8 +9,6 @@ package RosterSolver;
  */
 public class BacktrackCSP
 {
-    private static Problem solution = null;
-
     private static final int[] shiftTimes = {Roster.SHIFT_DAY,
                                 Roster.SHIFT_NIGHT,
                                 Roster.SHIFT_OFF};
@@ -23,25 +21,14 @@ public class BacktrackCSP
             return null;
         }
 
-        return backtrackSearch(solution, initialState);
+        return backtrackSearch(initialState);
     }
 
     /**
      * Takes two problem objects and returns either a completed roster or failure
      */
-    private static Problem backtrackSearch(Problem currentState, Problem initialState)
+    private static Problem backtrackSearch(Problem currentState)
     {
-        /**
-         *  setup the current state for the first run through
-         */
-        //TODO this needs changing to be a method to copy the contents of initialState into currentState so it isn't just a reference that updates both objects
-        //TODO right now the initialState is useless as it is the same as the currentState, inititalState is only really needed for the print process anyway where
-        //TODO you display the set shifts in red, so this could be changed for a list of shifts which were set and initialState removed
-        if(currentState == null)
-        {
-              currentState = initialState;
-        }
-
         /**
          * If the current state is complete then return the result
          */
@@ -82,7 +69,7 @@ public class BacktrackCSP
                         {
 
                             //currentState.printRoster();
-                            result = backtrackSearch(currentState, initialState);
+                            result = backtrackSearch(currentState);
 
                             if(result != null)
                             {
@@ -103,7 +90,7 @@ public class BacktrackCSP
                     {
                         //currentState.printRoster();
 
-                        result = backtrackSearch(currentState, initialState);
+                        result = backtrackSearch(currentState);
 
                         /**
                          * If the result of the search was null then it failed and the shift type needs to be reset
@@ -119,7 +106,6 @@ public class BacktrackCSP
                             currentState.setNurseShift(emptyShift[0], emptyShift[1], Roster.NOT_SET);
                         }
                     }
-
                 }
             }
         }
@@ -130,8 +116,6 @@ public class BacktrackCSP
         {
             return null;
         }
-
-
         return null;
     }
 }

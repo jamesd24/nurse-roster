@@ -15,6 +15,8 @@ public class RosterSolver
     public static final int NURSE_FIRST_SEARCH = 2;
     public static final int SEARCH_TYPE = DAY_FIRST_SEARCH;
 
+    private static boolean testRun = false;
+
     private Problem initialState;
 
     public RosterSolver(int nurses, int period)
@@ -78,28 +80,42 @@ public class RosterSolver
         r1.setNurseGrade(5, Nurse.RN);
         r1.setNurseGrade(6, Nurse.RN);
 
+        testRun = true;
+
         Long start = System.currentTimeMillis();
 
-        Problem result = BacktrackCSP.rosterSolver(r1.initialState);
+        //Problem result = BacktrackCSP.rosterSolver(r1.initialState);
+        Problem result = r1.run();
 
         Long finish = System.currentTimeMillis();
 
-        if(result != null)
+        // only prints to the console if the program was run from the main method rather than
+        // As an object from another class
+        if(testRun)
         {
-            result.printRoster();
-        }
-        else
-        {
-            System.out.println("\nSomething went wrong that I haven't made an error code for.");
+            if(result != null)
+            {
+                result.printRoster();
+            }
+            else
+            {
+                System.out.println("\nSomething went wrong that I haven't made an error code for.");
+            }
+
+            for(String error : Problem.error)
+            {
+                System.out.print("\n" +error);
+            }
+
+            timeHandler(start, finish);
         }
 
-        for(String error : Problem.error)
-        {
-            System.out.print("\n" +error);
-        }
 
-        timeHandler(start, finish);
+    }
 
+    public Problem run()
+    {
+        return BacktrackCSP.rosterSolver(initialState);
     }
 
     // Gives a certain nurse a certain shift type on a certain day
@@ -127,6 +143,6 @@ public class RosterSolver
 
         String time = String.format("%02d:%02d:%02d", minute, second, millis);
 
-        System.out.println(time);
+        System.out.println("Run time: " +time);
     }
 }

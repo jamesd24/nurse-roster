@@ -187,8 +187,8 @@ public class Problem
             return new int[] {-1,-1};
         }
     }
-    // Day first
 
+    // Day first
     public int[] dayFirstSearch()
     {
         int[] emptyDay = new int[2];
@@ -241,7 +241,6 @@ public class Problem
 
         return emptyDay;
     }
-
 
     /**
      * Used to check the setup of the roster doesn't contain any disallowed
@@ -349,20 +348,12 @@ public class Problem
      */
     public boolean checkDay(int day)
     {
-        //TODO Checks needed:
-        // Each day has enough people on each shift
-        // Less on weekends and half on nights
-
         return checkSrnShift(day) && checkMinShifts(day);
-        //return checkSrnShift(day);
-        //return checkMinShifts(day);
-        //return true;
     }
 
     /**
      * Checks the schedule to make sure the given day has a SRN working both the day and the night shift
      */
-    //TODO I think this is checking before the assignment, maybe?
     private boolean checkSrnShift(int day)
     {
         boolean daySRN = false;
@@ -424,9 +415,6 @@ public class Problem
          */
         int dayShift = nurses / 2;
         int nightShift = dayShift / 2;
-
-        //int dayShift = 4;
-        //int nightShift = 2;
 
         /**
          * Fill in the rest of the days from tne values derived above
