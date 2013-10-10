@@ -16,8 +16,7 @@ public class RosterWindowView extends JFrame
     private JButton closeButton = new JButton("Close");
     private JButton printButton = new JButton("Print");
     private JButton generateRosterButton = new JButton("Generate Roster");
-    private JList rosterList = new JList();
-    private JScrollPane rosterPane = new JScrollPane();
+    private JPanel rosterPanel = new JPanel();
 
     RosterWindowView(){
 
@@ -34,15 +33,10 @@ public class RosterWindowView extends JFrame
         this.setResizable(false);
 
 
-        rosterList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Generated Roster Goes Here"  };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        rosterPane.setViewportView(rosterList);
-        rosterPane.setPreferredSize(new Dimension(810, 540));
 
-        listPanel.add(rosterPane);
+        rosterPanel.setPreferredSize(new Dimension(810, 540));
+        rosterPanel.add(new JLabel("<html><u>GENERATED ROSTER</u></html>"));
+        listPanel.add(rosterPanel);
 
         closeButton.setPreferredSize(new Dimension(120,30));
         printButton.setPreferredSize(new Dimension(120,30));
@@ -80,6 +74,7 @@ public class RosterWindowView extends JFrame
         JOptionPane.showMessageDialog(this, errorMessage);
 
     }
+
 
 }
 

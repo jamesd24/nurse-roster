@@ -55,18 +55,20 @@ public class WardPPModel {
     //Used for now to replicate Default nurse information.
     private void setupDefaultNurses(){
         ArrayList<Nurse> nurses = new ArrayList<Nurse>();
-        Nurse testNurse1 = new Nurse("TestNurse1", 0, "SRN",5,"DN");
+        Nurse testNurse1 = new Nurse("TestNurse1", 0, "SRN",5,"D");
         Nurse testNurse2 = new Nurse("TestNurse2", 1, "SRN",5,"DN");
-        Nurse testNurse3 = new Nurse("TestNurse3", 2, "SRN",5,"D");
-        Nurse testNurse4 = new Nurse("TestNurse4", 3, "RN",5,"N");
-        Nurse testNurse5 = new Nurse("TestNurse5", 4, "RN",5,"D");
-        Nurse testNurse6 = new Nurse("TestNurse6", 5, "RN",5,"N");
+        Nurse testNurse3 = new Nurse("TestNurse3", 2, "SRN",5,"DN");
+        Nurse testNurse4 = new Nurse("TestNurse4", 2, "SRN",5,"DN");
+        Nurse testNurse5 = new Nurse("TestNurse5", 3, "RN",5,"D");
+        Nurse testNurse6 = new Nurse("TestNurse6", 4, "RN",5,"D");
+        Nurse testNurse7 = new Nurse("TestNurse7", 5, "RN",5,"N");
         nurses.add(testNurse1);
         nurses.add(testNurse2);
         nurses.add(testNurse3);
         nurses.add(testNurse4);
         nurses.add(testNurse5);
         nurses.add(testNurse6);
+        nurses.add(testNurse7);
         nurseList = nurses;
     }
     //Gets a list of nurses used in the listPane in WardPP

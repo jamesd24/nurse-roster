@@ -2,7 +2,7 @@ package RosterWindow;
 
 import Data.Nurse;
 import Data.Ward;
-
+import RosterSolver.*;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +24,7 @@ public class RosterWindowModel {
     //TODO RosterSolver entry point.
     public void generateRoster(){
         ArrayList<Nurse> nurses = ward.getListOfNurses();
-         System.out.println("USED FOR TESTING PURPOSES!------------------------");
+        System.out.println("USED FOR TESTING PURPOSES!------------------------");
         System.out.println("Ward Name: "+ward.getWardName()+" Roster Days: "+ ward.getRoster() + " Number of Nurses: "+ward.getListOfNurses().size());
         System.out.println("    Nurses:");
         for (int i = 0;i<nurses.size();i++){
@@ -33,6 +33,38 @@ public class RosterWindowModel {
              System.out.println(n.getNurseName()+" Qualification: "+n.getQualification()+" Shift Pattern: "+n.getShiftPattern()+" Number of Shifts: "+n.getShifts());
         }
         System.out.println("--------------------------------------------------");
+
+        RosterSolver r = new RosterSolver(ward.getListOfNurses().size(), ward.getRoster());
+        ArrayList<Nurse> nurseList = ward.getListOfNurses();
+        int SP = 0;
+        int Q = 0;
+        for(int i = 0; i<nurseList.size(); i++){
+            if(nurseList.get(i).getShiftPattern().equals("DN")){
+                SP = 6;
+            } if(nurseList.get(i).getShiftPattern().equals("N")){
+                SP = 5;
+            }
+            if(nurseList.get(i).getShiftPattern().equals("D")){
+                SP = 4;
+            }
+
+            if(nurseList.get(i).getQualification().equals("SRN")){
+                Q = 1;
+            }
+            if(nurseList.get(i).getQualification().equals("RN")){
+                Q = 2;
+            }
+
+            r.setNurseShiftPattern(i, SP);
+            r.setNurseGrade(i, Q);
+        }
+       Problem result =  r.run();
+       for(String error : Problem.error)
+       {
+           System.out.print("\n" +error);
+       }
+        result.printRoster();
+
 
     }
 

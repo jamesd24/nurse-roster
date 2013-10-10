@@ -89,7 +89,6 @@ public class WardPPController {
                 if(roster==0) roster = 7;
                 if(roster==1) roster = 14;
                 if(isProperties == false){
-                    //TODO Pressing multiple applies will create more wards if the isProperties is false.
                     theModel.newWardDataToXML(theView.wardName.getText(),roster);
                     selectedWard = theModel.wardList.getListOfWards().get(theModel.wardList.getListOfWards().size()-1);
                     isProperties = true;
