@@ -29,6 +29,12 @@ public class WardPPModel {
         wardList = xml.getWardsFromXML();
         setupDefaultNurses();
     }
+
+    /**
+     * Saves new ward to the data.xml file.
+     * @param name
+     * @param roster
+     */
     public void newWardDataToXML(String name, int roster){
         Ward newWard = new Ward(name,roster,generateNewId(), nurseList);
         ArrayList<Ward> w = wardList.getListOfWards();
@@ -36,6 +42,13 @@ public class WardPPModel {
         wardList.setListOfWards(w);
         xml.writeWardsToXML(wardList);
     }
+
+    /**
+     * replaces an existing ward with new data and writes it to the data.xml
+     * @param name
+     * @param roster
+     * @param w
+     */
     public void replaceWardData(String name, int roster,Ward w){
         Ward newWard = new Ward(name,roster,w.getId(), nurseList);
         ArrayList<Ward> wardArray = wardList.getListOfWards();
@@ -43,16 +56,29 @@ public class WardPPModel {
         wardList.setListOfWards(wardArray);
         xml.writeWardsToXML(wardList);
     }
+
+    /**
+     * Generates new id for a new ward when writing to data.xml.
+     * @return id for ward
+     */
     private int generateNewId(){
         ArrayList<Ward> w = wardList.getListOfWards();
     int id = w.get(w.size()-1).getId()+1;
     return id;
     }
+
+    /**
+     * Generates an id for a new nurse.
+     * @return id for nurse
+     */
     public int generateNurseId(){
         int id = nurseList.get(nurseList.size()-1).getId()+1;
         return id;
     }
-    //Used for now to replicate Default nurse information.
+
+    /**
+     * Used to set up default nurse data when creating a new ward.
+     */
     private void setupDefaultNurses(){
         ArrayList<Nurse> nurses = new ArrayList<Nurse>();
         Nurse testNurse1 = new Nurse("TestNurse1", 0, "SRN",5,"D");
@@ -71,7 +97,11 @@ public class WardPPModel {
         nurses.add(testNurse7);
         nurseList = nurses;
     }
-    //Gets a list of nurses used in the listPane in WardPP
+
+    /**
+     * Used to create information used later in the view nurse list.
+     * @return nList as a String ArrayList.
+     */
     public ArrayList<String> getNurseList(){
         ArrayList<String> nList = new ArrayList<String>();
         for(int i = 0; i < nurseList.size() ; i++){
@@ -79,6 +109,12 @@ public class WardPPModel {
         }
         return nList;
     }
+
+    /**
+     * Used to reconfigure the id's of the nurse list.
+     * @param nl existing nurse list.
+     * @return ArrayList<Nurse>
+     */
     public ArrayList<Nurse> resetIds(ArrayList<Nurse> nl){
         for(int i = 0; i < nl.size() ; ++i){
             nl.get(i).setId(i);

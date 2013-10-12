@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * User: James
  * Date: 9/29/13
  * Time: 4:14 PM
- * To change this template use File | Settings | File Templates.
+ * Sets up view for RosterWindow
  */
 public class RosterWindowView extends JFrame
 {
@@ -35,7 +35,6 @@ public class RosterWindowView extends JFrame
     RosterWindowView(){
 
         // Sets up the view and adds the components
-        // Without using GUI Form designer (BOSS!)
 
         JPanel listPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -107,6 +106,12 @@ public class RosterWindowView extends JFrame
         JOptionPane.showMessageDialog(this, errorMessage);
 
     }
+
+    /**
+     * Sets the data in the roster table after generating a roster.
+     * @param resultString
+     * @param nurseList
+     */
     public void setRosterTable(ArrayList<ArrayList<String>> resultString, ArrayList<Nurse> nurseList) {
         //Remove Rows
         tableModel.setRowCount(0);
@@ -129,6 +134,10 @@ public class RosterWindowView extends JFrame
         //Reset JTable to show new table model
         rosterTable.setModel(tableModel);
     }
+
+    /**
+     * Used to disable the generate roster button while a roster is loading.
+     */
     public void toggleGenerateButton(){
         if(generateRosterButton.isEnabled()){
             generateRosterButton.setText("Loading Roster");

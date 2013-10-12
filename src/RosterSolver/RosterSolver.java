@@ -4,7 +4,7 @@ package RosterSolver;
  * User: Phil
  * Date: 9/23/13
  * Time: 2:03 PM
- * To change this template use File | Settings | File Templates.
+ * RosterSolver main
  */
 public class RosterSolver
 {

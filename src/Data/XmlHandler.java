@@ -11,9 +11,13 @@ import javax.xml.bind.Unmarshaller;
  * User: James
  * Date: 10/3/13
  * Time: 11:37 AM
- * To change this template use File | Settings | File Templates.
+ * XML Handler is used to write single wards to the data.xml and also to return the list of wards from the data.xml
+ * This class uses JAXB to handle conversion from xml to objects.
  */
 
+/**
+ * Writes ward data to the xml file.
+ */
 public class XmlHandler {
     public void writeWardsToXML(Wards wards){
         try{

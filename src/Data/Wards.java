@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * User: James
  * Date: 10/3/13
  * Time: 11:36 AM
- * Object Class used to store ward information.
+ * Object Class used to store and handle list of wards.
  */
 @XmlRootElement
 public class Wards {

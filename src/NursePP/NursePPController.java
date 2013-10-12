@@ -5,7 +5,7 @@ package NursePP;
  * User: James
  * Date: 9/29/13
  * Time: 4:13 PM
- * To change this template use File | Settings | File Templates.
+ * Nurse PP Controller. This controller uses the WardPPModel. Defines the actions of the Apply Ok and Close buttons.
  */
 
 import Data.Nurse;

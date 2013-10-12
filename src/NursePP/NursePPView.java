@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  * User: James
  * Date: 9/29/13
  * Time: 4:14 PM
- * To change this template use File | Settings | File Templates.
+ * NursePP View. sets up the gui of the NursePP.
  */
 public class NursePPView extends JFrame
 {
@@ -29,7 +29,6 @@ public class NursePPView extends JFrame
     NursePPView(){
 
         // Sets up the view and adds the components
-        // Without using GUI Form designer (BOSS!)
 
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -101,6 +100,11 @@ public class NursePPView extends JFrame
         JOptionPane.showMessageDialog(this, errorMessage);
 
     }
+
+    /**
+     * Sets the property data if the nursePP is opened from the properties button.
+     * @param n Data.Nurse object.
+     */
     public void setupPropertiesData(Nurse n){
         this.setTitle(n.getNurseName()+ " - Properties");
         nurseName.setText(n.getNurseName());

@@ -12,7 +12,7 @@ import java.awt.event.WindowFocusListener;
  * User: James
  * Date: 9/29/13
  * Time: 4:14 PM
- * To change this template use File | Settings | File Templates.
+ * WardPPView used to setup the gui of the WardPP.
  */
 public class WardPPView extends JFrame
 {
@@ -31,7 +31,6 @@ public class WardPPView extends JFrame
     WardPPView(){
 
         // Sets up the view and adds the components
-        // Without using GUI Form designer (BOSS!)
 
         JPanel listPanel = new JPanel();
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -96,6 +95,10 @@ public class WardPPView extends JFrame
         // End of setting up the components --------
 
     }
+
+    /**
+     * Add listeners to all buttons and window focus. So the controller knows when an event has occurred.
+     */
     void addOkListener(ActionListener l){
         okButton.addActionListener(l);
     }
@@ -117,13 +120,20 @@ public class WardPPView extends JFrame
     void addFocusViewListener(WindowFocusListener l){
         this.addWindowFocusListener(l);
     }
-    // Open a popup that contains the error message passed
 
+    /**
+    *  Open a popup that contains the error message passed.
+    */
     void displayErrorMessage(String errorMessage){
 
         JOptionPane.showMessageDialog(this, errorMessage);
 
     }
+
+    /**
+     * Used to set up the existing data when a property page is required.
+     * @param w - The ward passed to the view so information can be set.
+     */
     public void setupPropertiesData(Ward w){
         this.setTitle(w.getWardName()+ " - Properties");
         wardName.setText(w.getWardName());

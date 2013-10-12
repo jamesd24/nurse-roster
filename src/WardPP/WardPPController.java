@@ -5,7 +5,7 @@ package WardPP;
  * User: James
  * Date: 9/29/13
  * Time: 4:13 PM
- * To change this template use File | Settings | File Templates.
+ * Controller for WardPP.
  */
 
 import Data.Ward;
@@ -39,6 +39,12 @@ public class WardPPController {
         setupController(theView,theModel);
         this.theView.setTitle("New Ward");
     }
+
+    /**
+     * Sets up the controller listeners and sets the view and model. Also obtains the list of nurses.
+     * @param theView
+     * @param theModel
+     */
     private void setupController(WardPPView theView, WardPPModel theModel){
         this.theView = theView;
         this.theModel = theModel;
@@ -51,6 +57,10 @@ public class WardPPController {
         this.theView.addDeleteListener(new DeleteNurseListener());
         this.theView.addFocusViewListener(new FocusListener());
     }
+
+    /**
+     * Used to refresh the list of nurses.
+     */
     private void refreshNurseList() {
         ArrayList<String> nurseList = theModel.getNurseList();
         DefaultListModel m = new DefaultListModel();
@@ -59,7 +69,9 @@ public class WardPPController {
         }
         theView.nurseList.setModel(m);
     }
-
+   /**
+    * Ok listener saves a new ward or edits existing ward then closes the view.
+    */
     class OkListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if((theView.wardName.getText().trim() == "")){
@@ -79,6 +91,10 @@ public class WardPPController {
             }
         }
     }
+
+    /**
+     *   Apply listener saves a new ward or edits existing ward.
+     */
     class ApplyListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if((theView.wardName.getText().trim() == "")){

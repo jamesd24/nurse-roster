@@ -5,7 +5,7 @@ import WardsWindow.WardsWindowMain;
  * User: James
  * Date: 9/19/13
  * Time: 1:17 PM
- * To change this template use File | Settings | File Templates.
+ * Main NurseRoster program starts a new WardsWindowMain.
  */
 public class NurseRosterApp {
     public static void main(String[] args) {

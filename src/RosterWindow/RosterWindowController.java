@@ -5,7 +5,7 @@ package RosterWindow;
  * User: James
  * Date: 9/29/13
  * Time: 4:13 PM
- * To change this template use File | Settings | File Templates.
+ * Roster Window Controller
  */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,6 +27,9 @@ public class RosterWindowController {
         this.theView.addCloseListener(new CloseListener());
     }
 
+    /**
+     * GenerateLister for generate roster button. Created a new thread so the RosterSolver can run in the background.
+     */
     class GenerateListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
@@ -42,6 +45,10 @@ public class RosterWindowController {
             new Thread(r).start();
         }
     }
+
+    /**
+     * Is meant to be able to print the roster table to paper.. but this is not required.
+     */
     class PrintListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             theView.displayErrorMessage("To Be Implemented");

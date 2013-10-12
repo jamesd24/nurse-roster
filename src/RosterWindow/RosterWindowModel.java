@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * User: James
  * Date: 9/29/13
  * Time: 4:14 PM
- * To change this template use File | Settings | File Templates.
+ * Model of RosterWindow.
  */
 public class RosterWindowModel {
     // Holds the values of the selected Ward to be used for Roster generation.
@@ -22,7 +22,10 @@ public class RosterWindowModel {
     public RosterWindowModel(Ward ward){
         this.ward = ward;
     }
-    //TODO RosterSolver entry point.
+
+    /**
+     * Passes required information to RosterSolver and returns a new result to be displayed in a table.
+     */
     public void generateRoster(){
         ArrayList<Nurse> nurses = ward.getListOfNurses();
         System.out.println("USED FOR TESTING PURPOSES!------------------------");
@@ -71,6 +74,11 @@ public class RosterWindowModel {
 
         //result.printRoster();
     }
+
+    /**
+     * Gets the resultString
+     * @return 2d ArrayList of Strings
+     */
     public ArrayList<ArrayList<String>> getResultString(){
         return resultString;
     }
