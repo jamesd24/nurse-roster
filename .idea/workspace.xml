@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="450e2651-00db-44de-8b98-cd2fff1031e0" name="Default" comment="" />
+    <list default="true" id="450e2651-00db-44de-8b98-cd2fff1031e0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RosterSolver/Problem.java" afterPath="$PROJECT_DIR$/src/RosterSolver/Problem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RosterSolver/Roster.java" afterPath="$PROJECT_DIR$/src/RosterSolver/Roster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java" afterPath="$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java" afterPath="$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java" afterPath="$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data.xml" afterPath="$PROJECT_DIR$/data.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="nurse-roster.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381367654777" ignored="false" />
-    <file path="/RosterWindowModel.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381370011471" ignored="false" />
+    <file path="/Dummy.txt" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381559294009" ignored="false" />
+    <file path="/RosterWindowModel.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381570807390" ignored="false" />
     <file path="/RosterSolver.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381371050782" ignored="false" />
-    <file path="/RosterWindowView.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381371927104" ignored="false" />
+    <file path="/RosterWindowView.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381571079913" ignored="false" />
+    <file path="/Roster.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381570748976" ignored="false" />
+    <file path="/Problem.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381570705534" ignored="false" />
+    <file path="/RosterWindowController.java" changelist="450e2651-00db-44de-8b98-cd2fff1031e0" time="1381569534070" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +33,8 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -70,63 +82,40 @@
       <file leaf-file-name="RosterWindowModel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="6" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0">
+            <state line="17" column="12" selection-start="411" selection-end="439" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RosterWindowController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="26" selection-start="1365" selection-end="1365" vertical-scroll-proportion="0.6464471">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#998#1364#0" expanded="true" />
+                <element signature="e#1349#1350#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WardPPController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WardPP/WardPPController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="42" selection-start="3224" selection-end="3224" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NursePPController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NursePP/NursePPController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="44" selection-start="335" selection-end="335" vertical-scroll-proportion="178.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="46" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Nurse.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RosterSolver/Nurse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="35" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WardPPModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WardPP/WardPPModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="63" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RosterWindowView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RosterWindowView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="76" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.48991355">
+            <state line="122" column="26" selection-start="4471" selection-end="4471" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#4021#4040#0" expanded="true" />
+                <element signature="e#4142#4150#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Problem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RosterSolver/Problem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="609" column="27" selection-start="16419" selection-end="16419" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,17 +124,11 @@
       <file leaf-file-name="Roster.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RosterSolver/Roster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Nurse.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Data/Nurse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="41" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="175" column="35" selection-start="4420" selection-end="4420" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#3781#3800#0" expanded="true" />
+                <element signature="e#3904#3912#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -169,18 +152,21 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/WardPP/WardPPModel.java" />
-        <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java" />
         <option value="$PROJECT_DIR$/src/WardPP/WardPPController.java" />
         <option value="$PROJECT_DIR$/src/RosterSolver/RosterSolver.java" />
+        <option value="$PROJECT_DIR$/src/RosterSolver/Roster.java" />
+        <option value="$PROJECT_DIR$/src/RosterSolver/Problem.java" />
+        <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java" />
         <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java" />
+        <option value="$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1928" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -208,7 +194,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,6 +318,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -404,6 +390,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -429,19 +428,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -540,29 +526,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39863715" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3975501" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739422" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6712095" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.6714922" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -630,6 +616,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Data/Nurse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="41" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Data/Wards.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
@@ -658,68 +651,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RosterSolver/Nurse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="35" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WardPP/WardPPController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="42" selection-start="3224" selection-end="3224" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="6" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RosterSolver/Roster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="46" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
+        <state line="16" column="46" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NursePP/NursePPController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="44" selection-start="335" selection-end="335" vertical-scroll-proportion="178.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RosterSolver/RosterSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="39" selection-start="2356" selection-end="2356" vertical-scroll-proportion="0.7838617">
+        <state line="16" column="44" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WardPP/WardPPModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="63" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.0">
+        <state line="63" column="63" selection-start="2227" selection-end="2227" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterSolver/RosterSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="50" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterSolver/Nurse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="48" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WardPP/WardPPController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="42" selection-start="3138" selection-end="3138" vertical-scroll-proportion="0.0194508">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterSolver/Roster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="35" selection-start="4420" selection-end="4420" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#3781#3800#0" expanded="true" />
+            <element signature="e#3904#3912#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterSolver/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="609" column="27" selection-start="16419" selection-end="16419" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="12" selection-start="411" selection-end="439" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="76" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.48991355">
-          <folding />
+        <state line="122" column="26" selection-start="4471" selection-end="4471" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#4021#4040#0" expanded="true" />
+            <element signature="e#4142#4150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RosterWindow/RosterWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="26" selection-start="1365" selection-end="1365" vertical-scroll-proportion="0.6464471">
+          <folding>
+            <element signature="e#998#1364#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

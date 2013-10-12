@@ -29,7 +29,17 @@ public class RosterWindowController {
 
     class GenerateListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            theModel.generateRoster();
+
+            Runnable r = new Runnable() {
+                @Override
+                public void run() {
+                    theView.toggleGenerateButton();
+                    theModel.generateRoster();
+                    theView.setRosterTable(theModel.getResultString(), theModel.ward.getListOfNurses());
+                    theView.toggleGenerateButton();
+                }
+            };
+            new Thread(r).start();
         }
     }
     class PrintListener implements ActionListener{

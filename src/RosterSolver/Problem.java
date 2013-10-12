@@ -602,4 +602,11 @@ public class Problem
             error.add(in);
         }
     }
+    /**
+     * Returns the completed roster
+     */
+    public ArrayList<ArrayList<String>> getCompletedRoster(){
+        ArrayList<ArrayList<String>> rosterArray = roster.getCompletedRoster();
+        return rosterArray;
+    }
 }

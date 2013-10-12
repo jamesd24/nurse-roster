@@ -1,4 +1,7 @@
 package RosterSolver;
+
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Phil
@@ -123,5 +126,53 @@ public class Roster
             }
         }
         System.out.print("\n");
+    }
+    public void newPrintRoster(){
+        for(int i = 0; i < nurses; i++)
+        {
+            for(int j = 0; j < period; j++)
+            {
+                if(j == 0)
+                {
+                    System.out.print("Nurse " +(i+1) + ":\t");
+                }
+                switch(roster[i][j]){
+                    case (SHIFT_DAY): System.out.print(" D ");
+                    case (SHIFT_NIGHT): System.out.print(" N ");
+                    case (SHIFT_OFF): System.out.print(" O ");
+                }
+                if(j == period -1)
+                {
+                    System.out.print("\n");
+                }
+            }
+        }
+    }
+    public ArrayList<ArrayList<String>> getCompletedRoster(){
+
+        ArrayList<ArrayList<String>> rosterArray = new ArrayList<ArrayList<String>>();
+
+        for(int i = 0; i < nurses; i++)
+        {
+            ArrayList<String> row = new ArrayList<String>();
+
+            for(int j = 0; j < period; j++)
+            {
+                if(roster[i][j] == SHIFT_DAY)
+                {
+                    row.add("D");
+                }
+                else if(roster[i][j] == SHIFT_NIGHT)
+                {
+                    row.add("N");
+                }
+                else if(roster[i][j] == SHIFT_OFF)
+                {
+                    row.add("O");
+                }
+            }
+            rosterArray.add(row);
+        }
+        return rosterArray;
     }
 }

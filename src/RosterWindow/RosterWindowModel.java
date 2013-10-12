@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class RosterWindowModel {
     // Holds the values of the selected Ward to be used for Roster generation.
     public Ward ward;
+    private ArrayList<ArrayList<String>> resultString;
 
     public RosterWindowModel(){}
 
@@ -63,10 +64,14 @@ public class RosterWindowModel {
        {
            System.out.print("\n" +error);
        }
-        result.printRoster();
+        resultString = result.getCompletedRoster();
+        for(int i = 0; i<resultString.size(); i++){
+                System.out.println(resultString.get(i));
+        }
 
-
+        //result.printRoster();
     }
-
-
+    public ArrayList<ArrayList<String>> getResultString(){
+        return resultString;
+    }
 }
