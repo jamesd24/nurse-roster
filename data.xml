@@ -43,7 +43,83 @@
             <shiftPattern>N</shiftPattern>
             <shifts>5</shifts>
         </Nurse>
-        <roster>7</roster>
+        <roster>14</roster>
         <wardName>Testing</wardName>
+    </Ward>
+    <Ward id="1">
+        <Nurse id="0">
+            <nurseName>TestNurse1</nurseName>
+            <qualification>SRN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="1">
+            <nurseName>TestNurse2</nurseName>
+            <qualification>SRN</qualification>
+            <shiftPattern>DN</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="2">
+            <nurseName>TestNurse3</nurseName>
+            <qualification>SRN</qualification>
+            <shiftPattern>DN</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="3">
+            <nurseName>TestNurse4</nurseName>
+            <qualification>SRN</qualification>
+            <shiftPattern>DN</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="4">
+            <nurseName>TestNurse5</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="5">
+            <nurseName>TestNurse7</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="6">
+            <nurseName>TestNurse6</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="7">
+            <nurseName>TestNurse8</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="8">
+            <nurseName>TestNurse9</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>D</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="9">
+            <nurseName>TestNurse10</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>DN</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="10">
+            <nurseName>TestNurse11</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>N</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <Nurse id="11">
+            <nurseName>TestNurse12</nurseName>
+            <qualification>RN</qualification>
+            <shiftPattern>N</shiftPattern>
+            <shifts>5</shifts>
+        </Nurse>
+        <roster>7</roster>
+        <wardName>TestWard2</wardName>
     </Ward>
 </wards>
