@@ -18,6 +18,7 @@ public class Nurse {
     private int shifts;
     private String shiftPattern;
 
+
     public Nurse(){
     }
     public Nurse(String nurseName, int id, String qualification, int shifts, String shiftPattern) {

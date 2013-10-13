@@ -148,6 +148,14 @@ public class Roster
             }
         }
     }
+
+    /**
+     * Gets the completed roster from to be used to show the roster in a table.
+     * @return 2D ArrayList of Strings example:
+     * D D D N N O O
+     * N N N 0 0 N N
+     * ect.
+     */
     public ArrayList<ArrayList<String>> getCompletedRoster(){
 
         ArrayList<ArrayList<String>> rosterArray = new ArrayList<ArrayList<String>>();
