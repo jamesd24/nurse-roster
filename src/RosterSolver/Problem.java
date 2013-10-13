@@ -338,7 +338,18 @@ public class Problem
         // First check that the nurse in question can take the assigned shift type
         if(canTakeShift(nurse, shift) && isRightShiftType(nurse, shift))
         {
-            return true;
+            // Set the shift if it is acceptable
+            setNurseShift(nurse, day, shift);
+
+            // If the nurse is the last one in the list then check the day is complete
+            if(nurse == nurses -1)
+            {
+                return checkDay(day);
+            }
+            else
+            {
+                return true;
+            }
         }
         return false;
     }
